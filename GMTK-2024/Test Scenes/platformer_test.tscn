@@ -1,0 +1,490 @@
+[gd_scene load_steps=52 format=3 uid="uid://bbvdk85vhs06h"]
+
+[ext_resource type="PackedScene" uid="uid://ck167ib0wmj7x" path="res://GMTK-2024/Player/player.tscn" id="1_vevnb"]
+[ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable.gd" id="1_yfhoa"]
+[ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="2_6yx0u"]
+[ext_resource type="PackedScene" uid="uid://c3bm1501oma1d" path="res://GMTK-2024/Player/Magnet/ligtning_effect.tscn" id="2_h0utj"]
+[ext_resource type="Script" path="res://GMTK-2024/Player/Magnet/ligtning_effect.gd" id="3_ofroo"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape.gd" id="4_kw0r6"]
+[ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable_ray_cast.gd" id="5_b27qy"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="5_i8n1a"]
+[ext_resource type="AudioStream" uid="uid://dobvd8gbwaxkp" path="res://GMTK-2024/Player/Magnet/sfx_magnet_hold.wav" id="6_0vrwt"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="6_y5cts"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="7_f8cc0"]
+[ext_resource type="AudioStream" uid="uid://200hw2rphdo7" path="res://GMTK-2024/Player/Magnet/sfx_magnet_pressed.wav" id="7_h76dv"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="8_imwgv"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="9_s1m5n"]
+[ext_resource type="Texture2D" uid="uid://cthwrfc2nqvib" path="res://GMTK-2024/Placeholder Art/placeholder edge.png" id="10_05nnj"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="11_5v863"]
+[ext_resource type="Texture2D" uid="uid://hrgeymwvlu3s" path="res://GMTK-2024/Placeholder Art/placeholder fill.png" id="12_xh7dh"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="13_5mi03"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyvey"]
+radius = 63.0
+
+[sub_resource type="Shader" id="Shader_eijy2"]
+code = "shader_type canvas_item;
+
+uniform float chaos : hint_range(0., 32.) = 1.;
+
+uniform float radius : hint_range(0., 1.) = 0.5;
+
+uniform float attenuation : hint_range(1., 5.) = 2.;
+
+varying vec2 amount_r;
+varying vec2 amount_g;
+varying vec2 amount_b;
+
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
+
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453) - .5;
+}
+
+void vertex() {
+	vec2 shifted_uv = (UV * 2.) - 1.;
+	amount_r = normalize(
+		vec2(rand(TIME * 1.3 * shifted_uv),
+		rand(TIME * 1.64 * shifted_uv)));
+	amount_g = normalize(
+		vec2(rand(TIME * 1.5 * shifted_uv),
+		rand(TIME * 1.7 * shifted_uv)));
+	amount_b = normalize(
+		vec2(rand(TIME * 1.17 * shifted_uv),
+		rand(TIME * 1.23 * shifted_uv)));
+}
+
+void fragment() {
+	vec2 chaos_v = vec2(chaos, -chaos) * SCREEN_PIXEL_SIZE;
+	
+	float dist = length((UV - vec2(0.5)) * 2.);
+	float att = clamp(dist / radius, 0., 1.);
+	
+	chaos_v *= 1. - pow(att, attenuation);
+	
+	COLOR = vec4(
+		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_r).r,
+		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_g).g,
+		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_b).b,
+		1.);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4y2fv"]
+shader = SubResource("Shader_eijy2")
+shader_parameter/chaos = 13.532
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.871
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwegm"]
+size = Vector2(798.328, 100)
+
+[sub_resource type="Resource" id="Resource_j5f03"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_k0n7t"]
+script = ExtResource("6_y5cts")
+position = Vector2(-261.686, 667.089)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_j5f03")
+
+[sub_resource type="Resource" id="Resource_xb8xb"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_tm7pf"]
+script = ExtResource("6_y5cts")
+position = Vector2(57.9268, 1130.95)
+point_in = Vector2(64.5617, -219.766)
+point_out = Vector2(226.267, 222.547)
+properties = SubResource("Resource_xb8xb")
+
+[sub_resource type="Resource" id="Resource_8ofww"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_7by2k"]
+script = ExtResource("6_y5cts")
+position = Vector2(868.763, 1260.08)
+point_in = Vector2(-119.978, 1.40662)
+point_out = Vector2(-5.66327, -147.244)
+properties = SubResource("Resource_8ofww")
+
+[sub_resource type="Resource" id="Resource_guckj"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_tgb8k"]
+script = ExtResource("6_y5cts")
+position = Vector2(1042.22, 1617.44)
+point_in = Vector2(214.96, -144.25)
+point_out = Vector2(-214.96, 144.25)
+properties = SubResource("Resource_guckj")
+
+[sub_resource type="Resource" id="Resource_5coeu"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_yt6n5"]
+script = ExtResource("6_y5cts")
+position = Vector2(-261.686, 667.089)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_5coeu")
+
+[sub_resource type="Resource" id="Resource_b22be"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_u8686"]
+script = ExtResource("6_y5cts")
+position = Vector2(-349.367, 1473.19)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_b22be")
+
+[sub_resource type="Resource" id="Resource_kjxij"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_j7h0k"]
+script = ExtResource("6_y5cts")
+position = Vector2(-510.588, 856.593)
+point_in = Vector2(-209.54, -67.9589)
+point_out = Vector2(209.54, 67.9589)
+properties = SubResource("Resource_kjxij")
+
+[sub_resource type="Resource" id="Resource_8a3m8"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_gc2t5"]
+script = ExtResource("6_y5cts")
+position = Vector2(-688.779, 1227.12)
+point_in = Vector2(84.9486, 190.662)
+point_out = Vector2(-84.9486, -190.662)
+properties = SubResource("Resource_8a3m8")
+
+[sub_resource type="Resource" id="Resource_6yh71"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_0w4cr"]
+script = ExtResource("6_y5cts")
+position = Vector2(2159.45, 1405.31)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_6yh71")
+
+[sub_resource type="Resource" id="Resource_3wdhh"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_6ir6i"]
+script = ExtResource("6_y5cts")
+position = Vector2(668.867, 1761.69)
+point_in = Vector2(277.499, -135.918)
+point_out = Vector2(-277.499, 135.918)
+properties = SubResource("Resource_3wdhh")
+
+[sub_resource type="Resource" id="Resource_hn0ap"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_a870l"]
+script = ExtResource("6_y5cts")
+position = Vector2(1483.45, 975.387)
+point_in = Vector2(-421.436, 59.397)
+point_out = Vector2(421.436, -59.397)
+properties = SubResource("Resource_hn0ap")
+
+[sub_resource type="Resource" id="Resource_0i1y7"]
+script = ExtResource("5_i8n1a")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_1got6"]
+script = ExtResource("6_y5cts")
+position = Vector2(-120.413, 912.738)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_0i1y7")
+
+[sub_resource type="Resource" id="Resource_esf2b"]
+script = ExtResource("7_f8cc0")
+_points = {
+0: SubResource("Resource_k0n7t"),
+1: SubResource("Resource_tm7pf"),
+2: SubResource("Resource_7by2k"),
+3: SubResource("Resource_tgb8k"),
+4: SubResource("Resource_yt6n5"),
+5: SubResource("Resource_u8686"),
+6: SubResource("Resource_j7h0k"),
+7: SubResource("Resource_gc2t5"),
+8: SubResource("Resource_0w4cr"),
+9: SubResource("Resource_6ir6i"),
+10: SubResource("Resource_a870l"),
+11: SubResource("Resource_1got6")
+}
+_point_order = Array[int]([0, 11, 1, 2, 10, 8, 3, 9, 5, 7, 6, 4])
+_constraints = {
+Array[int]([0, 4]): 15
+}
+_next_key = 14
+_material_overrides = {}
+
+[sub_resource type="Resource" id="Resource_75u12"]
+script = ExtResource("9_s1m5n")
+textures = Array[Texture2D]([ExtResource("10_05nnj")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = false
+use_taper_texture = false
+fit_mode = 0
+
+[sub_resource type="Resource" id="Resource_uc46s"]
+script = ExtResource("11_5v863")
+begin = 0.0
+distance = 360.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_npvsf"]
+script = ExtResource("8_imwgv")
+edge_material = SubResource("Resource_75u12")
+normal_range = SubResource("Resource_uc46s")
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = 0.0
+
+[sub_resource type="Resource" id="Resource_hk8db"]
+script = ExtResource("13_5mi03")
+_edge_meta_materials = Array[ExtResource("8_imwgv")]([SubResource("Resource_npvsf")])
+fill_textures = Array[Texture2D]([ExtResource("12_xh7dh")])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_texture_scale = 1.0
+fill_texture_absolute_position = false
+fill_texture_absolute_rotation = false
+fill_texture_offset = Vector2(0, 0)
+fill_texture_angle_offset = 0.0
+fill_mesh_offset = 0.0
+render_offset = 0.0
+
+[node name="PlatformerTest" type="Node2D"]
+
+[node name="Pickable" type="RigidBody2D" parent="."]
+position = Vector2(260, 428)
+collision_layer = 4
+collision_mask = 15
+input_pickable = true
+script = ExtResource("1_yfhoa")
+
+[node name="LigtningEffect" parent="Pickable" instance=ExtResource("2_h0utj")]
+script = ExtResource("3_ofroo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable"]
+shape = SubResource("CircleShape2D_uyvey")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickable"]
+texture = ExtResource("2_6yx0u")
+
+[node name="Distortion" type="ColorRect" parent="Pickable"]
+z_index = 20
+material = SubResource("ShaderMaterial_4y2fv")
+offset_left = -101.0
+offset_top = -90.0
+offset_right = 99.0
+offset_bottom = 91.0
+color = Color(1, 1, 1, 0)
+
+[node name="PickableRayCast" type="RayCast2D" parent="Pickable"]
+target_position = Vector2(0, 0)
+collision_mask = 2
+script = ExtResource("5_b27qy")
+
+[node name="SfxHold" type="AudioStreamPlayer2D" parent="Pickable"]
+stream = ExtResource("6_0vrwt")
+volume_db = -3.47
+
+[node name="SfxPressed" type="AudioStreamPlayer2D" parent="Pickable"]
+stream = ExtResource("7_h76dv")
+
+[node name="Pickable2" type="RigidBody2D" parent="."]
+position = Vector2(671, 263)
+collision_layer = 4
+collision_mask = 15
+input_pickable = true
+script = ExtResource("1_yfhoa")
+
+[node name="LigtningEffect" parent="Pickable2" instance=ExtResource("2_h0utj")]
+script = ExtResource("3_ofroo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable2"]
+shape = SubResource("CircleShape2D_uyvey")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickable2"]
+texture = ExtResource("2_6yx0u")
+
+[node name="Distortion" type="ColorRect" parent="Pickable2"]
+z_index = 20
+material = SubResource("ShaderMaterial_4y2fv")
+offset_left = -101.0
+offset_top = -90.0
+offset_right = 99.0
+offset_bottom = 91.0
+color = Color(1, 1, 1, 0)
+
+[node name="PickableRayCast" type="RayCast2D" parent="Pickable2"]
+target_position = Vector2(0, 0)
+collision_mask = 2
+script = ExtResource("5_b27qy")
+
+[node name="SfxHold" type="AudioStreamPlayer2D" parent="Pickable2"]
+stream = ExtResource("6_0vrwt")
+volume_db = -3.47
+
+[node name="SfxPressed" type="AudioStreamPlayer2D" parent="Pickable2"]
+stream = ExtResource("7_h76dv")
+
+[node name="Pickable3" type="RigidBody2D" parent="."]
+position = Vector2(-120, 652)
+collision_layer = 4
+collision_mask = 15
+input_pickable = true
+script = ExtResource("1_yfhoa")
+
+[node name="LigtningEffect" parent="Pickable3" instance=ExtResource("2_h0utj")]
+script = ExtResource("3_ofroo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable3"]
+shape = SubResource("CircleShape2D_uyvey")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickable3"]
+texture = ExtResource("2_6yx0u")
+
+[node name="Distortion" type="ColorRect" parent="Pickable3"]
+z_index = 20
+material = SubResource("ShaderMaterial_4y2fv")
+offset_left = -101.0
+offset_top = -90.0
+offset_right = 99.0
+offset_bottom = 91.0
+color = Color(1, 1, 1, 0)
+
+[node name="PickableRayCast" type="RayCast2D" parent="Pickable3"]
+target_position = Vector2(0, 0)
+collision_mask = 2
+script = ExtResource("5_b27qy")
+
+[node name="SfxHold" type="AudioStreamPlayer2D" parent="Pickable3"]
+stream = ExtResource("6_0vrwt")
+volume_db = -3.47
+
+[node name="SfxPressed" type="AudioStreamPlayer2D" parent="Pickable3"]
+stream = ExtResource("7_h76dv")
+
+[node name="Player" parent="." instance=ExtResource("1_vevnb")]
+position = Vector2(375, 247)
+floor_stop_on_slope = true
+floor_constant_speed = false
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(571, 593)
+scale = Vector2(7.02904, 0.841926)
+texture = ExtResource("2_6yx0u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon"]
+position = Vector2(-89.8841, -715.52)
+scale = Vector2(0.15783, 1.28)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/StaticBody2D"]
+position = Vector2(569.5, 558.219)
+shape = SubResource("RectangleShape2D_vwegm")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(623, 439)
+scale = Vector2(1.52939, 1.47209)
+texture = ExtResource("2_6yx0u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon2"]
+position = Vector2(-89.8841, -715.52)
+scale = Vector2(0.15783, 1.28)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon2/StaticBody2D"]
+position = Vector2(569.5, 558.219)
+shape = SubResource("RectangleShape2D_vwegm")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(934, 260)
+rotation = -0.710377
+scale = Vector2(1.52939, 1.47209)
+texture = ExtResource("2_6yx0u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon3"]
+position = Vector2(-89.8841, -715.52)
+scale = Vector2(0.15783, 1.28)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon3/StaticBody2D"]
+position = Vector2(569.5, 558.219)
+shape = SubResource("RectangleShape2D_vwegm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 31
+
+[node name="SS2D_Shape" type="Node2D" parent="StaticBody2D"]
+script = ExtResource("4_kw0r6")
+_points = SubResource("Resource_esf2b")
+shape_material = SubResource("Resource_hk8db")
+collision_polygon_node_path = NodePath("../CollisionPolygon2D")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+modulate = Color(1, 1, 1, 0.3)
+polygon = PackedVector2Array(-261.731, 666.777, -120.38, 912.684, -110.102, 913.1, -83.468, 915.928, -46.9616, 923.835, -27.0217, 930.508, -7.03187, 939.431, 12.2011, 950.929, 21.2818, 957.746, 29.8713, 965.329, 37.8685, 973.719, 45.1727, 982.957, 51.6831, 993.084, 57.2988, 1004.14, 61.9193, 1016.17, 65.4435, 1029.2, 67.7709, 1043.29, 68.8006, 1058.48, 68.4318, 1074.79, 66.5638, 1092.28, 63.0958, 1110.99, 57.9956, 1130.93, 79.82, 1150.9, 103.003, 1169.09, 152.81, 1200.45, 206.495, 1225.63, 263.205, 1245.21, 322.084, 1259.8, 382.279, 1269.98, 503.203, 1279.5, 868.665, 1259.99, 868.832, 1246.48, 870.103, 1233.27, 872.579, 1220.45, 876.264, 1208.01, 881.16, 1195.94, 887.272, 1184.22, 894.602, 1172.86, 903.154, 1161.83, 912.931, 1151.14, 923.936, 1140.77, 949.644, 1120.96, 980.305, 1102.32, 1015.94, 1084.79, 1102.26, 1052.74, 1208.82, 1024.22, 1483.45, 975.387, 1522.47, 971.394, 1560.49, 970.427, 1597.51, 972.294, 1633.5, 976.806, 1702.33, 993.005, 1766.87, 1017.5, 1826.98, 1048.78, 1882.54, 1085.31, 1933.42, 1125.59, 1979.49, 1168.07, 2056.68, 1253.62, 2113.09, 1329.78, 2159.66, 1405.41, 1681.44, 1457.28, 1307.47, 1523.44, 1151.94, 1566.91, 1090.19, 1591.29, 1064.34, 1604.14, 1042.22, 1617.44, 975.842, 1659.48, 932.221, 1681.72, 916.268, 1687.44, 902.793, 1690.64, 890.725, 1692.12, 878.996, 1692.69, 852.267, 1694.35, 835.128, 1697.06, 814.045, 1702.1, 755.765, 1722.39, 668.867, 1761.69, 641.531, 1772.82, 611.702, 1780.85, 579.598, 1785.95, 545.442, 1788.32, 471.853, 1785.54, 392.698, 1773.95, 224.743, 1730.14, 55.6877, 1668.41, -349.368, 1473.19, -390.454, 1461.55, -434.361, 1445.6, -487.218, 1421.65, -544.056, 1388.77, -572.416, 1368.68, -599.909, 1346, -625.912, 1320.63, -649.806, 1292.43, -670.969, 1261.3, -688.78, 1227.12, -703.079, 1190.79, -714.107, 1153.67, -721.836, 1116.3, -726.241, 1079.23, -727.298, 1043.01, -724.98, 1008.18, -719.262, 975.283, -710.117, 944.873, -704.253, 930.771, -697.522, 917.495, -689.923, 905.112, -681.451, 893.693, -672.103, 883.304, -661.877, 874.014, -650.769, 865.892, -638.776, 859.005, -625.895, 853.422, -612.122, 849.212, -597.455, 846.443, -581.89, 845.182, -565.424, 845.498, -548.054, 847.46, -529.776, 851.135, -510.588, 856.593, -491.438, 862.028, -473.262, 865.664, -456.034, 867.606, -439.732, 867.961, -424.331, 866.837, -409.808, 864.34, -396.138, 860.576, -383.298, 855.653, -371.263, 849.676, -360.009, 842.754, -349.513, 834.992, -339.751, 826.497, -322.332, 807.736, -307.56, 787.325, -295.243, 766.118, -285.191, 744.968, -271.111, 706.255)
+
+[connection signal="mouse_entered" from="Pickable" to="Pickable" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pickable" to="Pickable" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Pickable2" to="Pickable2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pickable2" to="Pickable2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Pickable3" to="Pickable3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pickable3" to="Pickable3" method="_on_mouse_exited"]
+
+[editable path="Pickable/LigtningEffect"]
+[editable path="Pickable2/LigtningEffect"]
+[editable path="Pickable3/LigtningEffect"]

@@ -1,0 +1,106 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddm5hrj7d0cmq"]
+
+[ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable.gd" id="1_ru7p0"]
+[ext_resource type="PackedScene" uid="uid://c3bm1501oma1d" path="res://GMTK-2024/Player/Magnet/ligtning_effect.tscn" id="2_oaqh4"]
+[ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="2_ygjcx"]
+[ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable_ray_cast.gd" id="3_kstcs"]
+[ext_resource type="Script" path="res://GMTK-2024/Player/Magnet/ligtning_effect.gd" id="3_ykq2q"]
+[ext_resource type="AudioStream" uid="uid://dobvd8gbwaxkp" path="res://GMTK-2024/Player/Magnet/sfx_magnet_hold.wav" id="6_yyjkv"]
+[ext_resource type="AudioStream" uid="uid://200hw2rphdo7" path="res://GMTK-2024/Player/Magnet/sfx_magnet_pressed.wav" id="7_ryd0s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uyvey"]
+radius = 63.0
+
+[sub_resource type="Shader" id="Shader_eijy2"]
+code = "shader_type canvas_item;
+
+uniform float chaos : hint_range(0., 32.) = 1.;
+
+uniform float radius : hint_range(0., 1.) = 0.5;
+
+uniform float attenuation : hint_range(1., 5.) = 2.;
+
+varying vec2 amount_r;
+varying vec2 amount_g;
+varying vec2 amount_b;
+
+uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
+
+float rand(vec2 co){
+    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453) - .5;
+}
+
+void vertex() {
+	vec2 shifted_uv = (UV * 2.) - 1.;
+	amount_r = normalize(
+		vec2(rand(TIME * 1.3 * shifted_uv),
+		rand(TIME * 1.64 * shifted_uv)));
+	amount_g = normalize(
+		vec2(rand(TIME * 1.5 * shifted_uv),
+		rand(TIME * 1.7 * shifted_uv)));
+	amount_b = normalize(
+		vec2(rand(TIME * 1.17 * shifted_uv),
+		rand(TIME * 1.23 * shifted_uv)));
+}
+
+void fragment() {
+	vec2 chaos_v = vec2(chaos, -chaos) * SCREEN_PIXEL_SIZE;
+	
+	float dist = length((UV - vec2(0.5)) * 2.);
+	float att = clamp(dist / radius, 0., 1.);
+	
+	chaos_v *= 1. - pow(att, attenuation);
+	
+	COLOR = vec4(
+		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_r).r,
+		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_g).g,
+		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_b).b,
+		1.);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4y2fv"]
+shader = SubResource("Shader_eijy2")
+shader_parameter/chaos = 13.532
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 2.871
+
+[node name="Pickable" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 15
+input_pickable = true
+script = ExtResource("1_ru7p0")
+
+[node name="LigtningEffect" parent="." instance=ExtResource("2_oaqh4")]
+script = ExtResource("3_ykq2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uyvey")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ygjcx")
+
+[node name="Distortion" type="ColorRect" parent="."]
+z_index = 20
+material = SubResource("ShaderMaterial_4y2fv")
+offset_left = -101.0
+offset_top = -90.0
+offset_right = 99.0
+offset_bottom = 91.0
+color = Color(1, 1, 1, 0)
+
+[node name="PickableRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 2
+script = ExtResource("3_kstcs")
+
+[node name="SfxHold" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yyjkv")
+volume_db = -3.47
+
+[node name="SfxPressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ryd0s")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+
+[editable path="LigtningEffect"]
