@@ -29,7 +29,7 @@ func _process(_delta: float) -> void:
 		set_collision_layer_value(3, false) #Disable Pickable Layer
 		set_collision_layer_value(5, true) #Enable Held Layer
 		set_collision_mask_value(1, false) #Disable Player Mask
-		set_collision_mask_value(3, false) #Disable Pickable Mask
+		#set_collision_mask_value(3, false) #Disable Pickable Mask
 		set_collision_mask_value(5, true) #Enable Held Mask
 		
 		linear_damp = held_damping

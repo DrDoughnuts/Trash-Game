@@ -67,6 +67,7 @@ shader_parameter/attenuation = 2.871
 [node name="Pickable" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 15
+collision_priority = 10.0
 input_pickable = true
 script = ExtResource("1_ru7p0")
 
