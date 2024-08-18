@@ -78,7 +78,7 @@ shader_parameter/attenuation = 2.871
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwegm"]
 size = Vector2(798.328, 100)
 
-[sub_resource type="Resource" id="Resource_j5f03"]
+[sub_resource type="Resource" id="Resource_ckbog"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -89,9 +89,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-261.686, 667.089)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_j5f03")
+properties = SubResource("Resource_ckbog")
 
-[sub_resource type="Resource" id="Resource_xb8xb"]
+[sub_resource type="Resource" id="Resource_qrevv"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -102,9 +102,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(57.9268, 1130.95)
 point_in = Vector2(64.5617, -219.766)
 point_out = Vector2(226.267, 222.547)
-properties = SubResource("Resource_xb8xb")
+properties = SubResource("Resource_qrevv")
 
-[sub_resource type="Resource" id="Resource_8ofww"]
+[sub_resource type="Resource" id="Resource_168xo"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -115,9 +115,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(868.763, 1260.08)
 point_in = Vector2(-119.978, 1.40662)
 point_out = Vector2(-5.66327, -147.244)
-properties = SubResource("Resource_8ofww")
+properties = SubResource("Resource_168xo")
 
-[sub_resource type="Resource" id="Resource_guckj"]
+[sub_resource type="Resource" id="Resource_kdicm"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -128,9 +128,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(1042.22, 1617.44)
 point_in = Vector2(214.96, -144.25)
 point_out = Vector2(-214.96, 144.25)
-properties = SubResource("Resource_guckj")
+properties = SubResource("Resource_kdicm")
 
-[sub_resource type="Resource" id="Resource_5coeu"]
+[sub_resource type="Resource" id="Resource_enlkw"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -141,9 +141,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-261.686, 667.089)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_5coeu")
+properties = SubResource("Resource_enlkw")
 
-[sub_resource type="Resource" id="Resource_b22be"]
+[sub_resource type="Resource" id="Resource_gn4yp"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -154,9 +154,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-349.367, 1473.19)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_b22be")
+properties = SubResource("Resource_gn4yp")
 
-[sub_resource type="Resource" id="Resource_kjxij"]
+[sub_resource type="Resource" id="Resource_7quov"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -167,9 +167,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-510.588, 856.593)
 point_in = Vector2(-209.54, -67.9589)
 point_out = Vector2(209.54, 67.9589)
-properties = SubResource("Resource_kjxij")
+properties = SubResource("Resource_7quov")
 
-[sub_resource type="Resource" id="Resource_8a3m8"]
+[sub_resource type="Resource" id="Resource_saari"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -180,9 +180,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-688.779, 1227.12)
 point_in = Vector2(84.9486, 190.662)
 point_out = Vector2(-84.9486, -190.662)
-properties = SubResource("Resource_8a3m8")
+properties = SubResource("Resource_saari")
 
-[sub_resource type="Resource" id="Resource_6yh71"]
+[sub_resource type="Resource" id="Resource_d2fyd"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -193,9 +193,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(2159.45, 1405.31)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_6yh71")
+properties = SubResource("Resource_d2fyd")
 
-[sub_resource type="Resource" id="Resource_3wdhh"]
+[sub_resource type="Resource" id="Resource_tfx71"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -206,9 +206,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(668.867, 1761.69)
 point_in = Vector2(277.499, -135.918)
 point_out = Vector2(-277.499, 135.918)
-properties = SubResource("Resource_3wdhh")
+properties = SubResource("Resource_tfx71")
 
-[sub_resource type="Resource" id="Resource_hn0ap"]
+[sub_resource type="Resource" id="Resource_thggu"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -219,9 +219,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(1483.45, 975.387)
 point_in = Vector2(-421.436, 59.397)
 point_out = Vector2(421.436, -59.397)
-properties = SubResource("Resource_hn0ap")
+properties = SubResource("Resource_thggu")
 
-[sub_resource type="Resource" id="Resource_0i1y7"]
+[sub_resource type="Resource" id="Resource_cnya7"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -232,7 +232,7 @@ script = ExtResource("6_y5cts")
 position = Vector2(-120.413, 912.738)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_0i1y7")
+properties = SubResource("Resource_cnya7")
 
 [sub_resource type="Resource" id="Resource_esf2b"]
 script = ExtResource("7_f8cc0")
@@ -476,7 +476,7 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 visible = false
 modulate = Color(1, 1, 1, 0.3)
-polygon = PackedVector2Array(-261.731, 666.777, -120.38, 912.684, -110.102, 913.1, -83.468, 915.928, -46.9616, 923.835, -27.0217, 930.508, -7.03187, 939.431, 12.2011, 950.929, 21.2818, 957.746, 29.8713, 965.329, 37.8685, 973.719, 45.1727, 982.957, 51.6831, 993.084, 57.2988, 1004.14, 61.9193, 1016.17, 65.4435, 1029.2, 67.7709, 1043.29, 68.8006, 1058.48, 68.4318, 1074.79, 66.5638, 1092.28, 63.0958, 1110.99, 57.9956, 1130.93, 79.82, 1150.9, 103.003, 1169.09, 152.81, 1200.45, 206.495, 1225.63, 263.205, 1245.21, 322.084, 1259.8, 382.279, 1269.98, 503.203, 1279.5, 868.665, 1259.99, 868.832, 1246.48, 870.103, 1233.27, 872.579, 1220.45, 876.264, 1208.01, 881.16, 1195.94, 887.272, 1184.22, 894.602, 1172.86, 903.154, 1161.83, 912.931, 1151.14, 923.936, 1140.77, 949.644, 1120.96, 980.305, 1102.32, 1015.94, 1084.79, 1102.26, 1052.74, 1208.82, 1024.22, 1483.45, 975.387, 1522.47, 971.394, 1560.49, 970.427, 1597.51, 972.294, 1633.5, 976.806, 1702.33, 993.005, 1766.87, 1017.5, 1826.98, 1048.78, 1882.54, 1085.31, 1933.42, 1125.59, 1979.49, 1168.07, 2056.68, 1253.62, 2113.09, 1329.78, 2159.66, 1405.41, 1681.44, 1457.28, 1307.47, 1523.44, 1151.94, 1566.91, 1090.19, 1591.29, 1064.34, 1604.14, 1042.22, 1617.44, 975.842, 1659.48, 932.221, 1681.72, 916.268, 1687.44, 902.793, 1690.64, 890.725, 1692.12, 878.996, 1692.69, 852.267, 1694.35, 835.128, 1697.06, 814.045, 1702.1, 755.765, 1722.39, 668.867, 1761.69, 641.531, 1772.82, 611.702, 1780.85, 579.598, 1785.95, 545.442, 1788.32, 471.853, 1785.54, 392.698, 1773.95, 224.743, 1730.14, 55.6877, 1668.41, -349.368, 1473.19, -390.454, 1461.55, -434.361, 1445.6, -487.218, 1421.65, -544.056, 1388.77, -572.416, 1368.68, -599.909, 1346, -625.912, 1320.63, -649.806, 1292.43, -670.969, 1261.3, -688.78, 1227.12, -703.079, 1190.79, -714.107, 1153.67, -721.836, 1116.3, -726.241, 1079.23, -727.298, 1043.01, -724.98, 1008.18, -719.262, 975.283, -710.117, 944.873, -704.253, 930.771, -697.522, 917.495, -689.923, 905.112, -681.451, 893.693, -672.103, 883.304, -661.877, 874.014, -650.769, 865.892, -638.776, 859.005, -625.895, 853.422, -612.122, 849.212, -597.455, 846.443, -581.89, 845.182, -565.424, 845.498, -548.054, 847.46, -529.776, 851.135, -510.588, 856.593, -491.438, 862.028, -473.262, 865.664, -456.034, 867.606, -439.732, 867.961, -424.331, 866.837, -409.808, 864.34, -396.138, 860.576, -383.298, 855.653, -371.263, 849.676, -360.009, 842.754, -349.513, 834.992, -339.751, 826.497, -322.332, 807.736, -307.56, 787.325, -295.243, 766.118, -285.191, 744.968, -271.111, 706.255)
+polygon = PackedVector2Array(-261.731, 666.777, -120.381, 912.684, -110.102, 913.1, -83.4683, 915.928, -46.9619, 923.835, -27.0219, 930.509, -7.03206, 939.431, 12.201, 950.929, 21.2817, 957.746, 29.8711, 965.329, 37.8683, 973.719, 45.1726, 982.957, 51.683, 993.084, 57.2988, 1004.14, 61.9192, 1016.17, 65.4435, 1029.2, 67.7709, 1043.29, 68.8006, 1058.48, 68.4318, 1074.79, 66.5638, 1092.28, 63.0958, 1110.99, 57.9956, 1130.93, 79.82, 1150.9, 103.003, 1169.09, 152.81, 1200.45, 206.495, 1225.63, 263.205, 1245.21, 322.084, 1259.8, 382.279, 1269.98, 503.203, 1279.5, 868.664, 1259.99, 868.831, 1246.48, 870.102, 1233.27, 872.579, 1220.45, 876.263, 1208.01, 881.16, 1195.93, 887.272, 1184.22, 894.602, 1172.85, 903.154, 1161.83, 912.931, 1151.14, 923.936, 1140.77, 949.644, 1120.96, 980.305, 1102.32, 1015.94, 1084.79, 1102.26, 1052.74, 1208.82, 1024.22, 1483.45, 975.387, 1522.47, 971.394, 1560.49, 970.427, 1597.51, 972.294, 1633.5, 976.806, 1702.33, 993.005, 1766.87, 1017.5, 1826.98, 1048.78, 1882.54, 1085.31, 1933.42, 1125.59, 1979.49, 1168.07, 2056.68, 1253.62, 2113.09, 1329.78, 2159.66, 1405.41, 1681.44, 1457.28, 1307.47, 1523.44, 1151.94, 1566.91, 1090.19, 1591.29, 1064.34, 1604.14, 1042.22, 1617.44, 975.842, 1659.48, 932.221, 1681.72, 916.268, 1687.44, 902.793, 1690.64, 890.725, 1692.12, 878.996, 1692.69, 852.267, 1694.35, 835.128, 1697.06, 814.045, 1702.1, 755.765, 1722.39, 668.867, 1761.69, 641.531, 1772.82, 611.702, 1780.85, 579.598, 1785.95, 545.442, 1788.32, 471.853, 1785.54, 392.698, 1773.95, 224.743, 1730.14, 55.6876, 1668.41, -349.368, 1473.19, -390.454, 1461.55, -434.361, 1445.6, -487.218, 1421.65, -544.056, 1388.77, -572.416, 1368.68, -599.909, 1346, -625.912, 1320.63, -649.806, 1292.43, -670.969, 1261.3, -688.78, 1227.12, -703.079, 1190.79, -714.107, 1153.67, -721.836, 1116.3, -726.241, 1079.23, -727.298, 1043.01, -724.98, 1008.18, -719.262, 975.283, -710.117, 944.873, -704.253, 930.771, -697.522, 917.495, -689.923, 905.112, -681.451, 893.693, -672.103, 883.304, -661.877, 874.014, -650.769, 865.892, -638.776, 859.005, -625.895, 853.422, -612.122, 849.212, -597.455, 846.443, -581.89, 845.182, -565.424, 845.498, -548.054, 847.46, -529.776, 851.135, -510.588, 856.593, -491.438, 862.028, -473.262, 865.664, -456.034, 867.606, -439.732, 867.961, -424.331, 866.837, -409.808, 864.34, -396.138, 860.576, -383.298, 855.653, -371.263, 849.676, -360.009, 842.754, -349.513, 834.992, -339.751, 826.497, -322.332, 807.736, -307.56, 787.325, -295.243, 766.118, -285.191, 744.968, -271.111, 706.255)
 
 [connection signal="mouse_entered" from="Pickable" to="Pickable" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Pickable" to="Pickable" method="_on_mouse_exited"]
