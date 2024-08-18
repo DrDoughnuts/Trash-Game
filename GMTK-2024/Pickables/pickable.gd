@@ -15,11 +15,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("magnet") && mouse_in:
-		print("Bazinga")
 		if get_tree().get_node_count_in_group("held") < PlayerStats.magnet_limit:
 			held = true
-	elif Input.is_action_just_pressed("magnet"):
-		print(mouse_in)
 	
 	if held == true:
 		gravity_scale = 0
