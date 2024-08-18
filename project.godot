@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 
 PlayerStats="*res://GMTK-2024/player_stats.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
-TrashManager="*res://trash_manager.gd"
 
 [dialogic]
 
@@ -104,3 +103,8 @@ dialogic_default_action={
 2d/layer_5=""
 2d/layer_3="Pickable"
 2d/layer_4="Enemy"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
