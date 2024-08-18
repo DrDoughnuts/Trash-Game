@@ -1,16 +1,111 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck167ib0wmj7x"]
+[gd_scene load_steps=23 format=3 uid="uid://ck167ib0wmj7x"]
 
-[ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="1_ytfwu"]
+[ext_resource type="Texture2D" uid="uid://corev1i3drvjy" path="res://GMTK-2024/Player/Player Art/Death1.png" id="1_75kyj"]
+[ext_resource type="Texture2D" uid="uid://cln3imnsljkm8" path="res://GMTK-2024/Player/Player Art/Idle.png" id="1_ej1ir"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/player_movement.gd" id="2_8h1nm"]
+[ext_resource type="Texture2D" uid="uid://cvclasese6pqu" path="res://GMTK-2024/Player/Player Art/Death2.png" id="2_fxxkf"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/throw_held_object.gd" id="3_3j0sv"]
+[ext_resource type="Texture2D" uid="uid://c6qwfytrw327o" path="res://GMTK-2024/Player/Player Art/Fall.png" id="3_5get3"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/camera_follow.gd" id="4_fupu2"]
 [ext_resource type="AudioStream" uid="uid://dnp0ovta5woq" path="res://GMTK-2024/Player/Magnet/sfx_manget_release.wav" id="4_yruva"]
 [ext_resource type="AudioStream" uid="uid://bhws1r37budme" path="res://GMTK-2024/Player/Magnet/sfx_magnet_deactivate.wav" id="5_ghbhu"]
+[ext_resource type="Texture2D" uid="uid://dswl1q2tpb10l" path="res://GMTK-2024/Player/Player Art/Jump1.png" id="5_o0ewe"]
+[ext_resource type="Texture2D" uid="uid://ckyx5buga7fnj" path="res://GMTK-2024/Player/Player Art/Jump2.png" id="6_8unfo"]
 [ext_resource type="AudioStream" uid="uid://dshuerbdn53ot" path="res://GMTK-2024/Player/Magnet/sfx_magnet_fail.mp3" id="6_dly2c"]
+[ext_resource type="Texture2D" uid="uid://dtu4jkkto2gif" path="res://GMTK-2024/Player/Player Art/Run3.png" id="7_amj2i"]
+[ext_resource type="Texture2D" uid="uid://cw6p4uu2l57pk" path="res://GMTK-2024/Player/Player Art/Run2.png" id="8_g5wbg"]
+[ext_resource type="Texture2D" uid="uid://cvgthu3ng2tcy" path="res://GMTK-2024/Player/Player Art/Run1.png" id="9_g4ov5"]
+[ext_resource type="Texture2D" uid="uid://wcorgv8ukjnw" path="res://GMTK-2024/Player/Player Art/Run4.png" id="10_h0tcm"]
+[ext_resource type="Script" path="res://GMTK-2024/Player/player_animation.gd" id="11_32fhv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uklro"]
-radius = 30.0
-height = 124.0
+radius = 68.0
+height = 294.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uyjx"]
+atlas = ExtResource("1_ej1ir")
+region = Rect2(0, 0, 299, 295)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01g5w"]
+atlas = ExtResource("1_ej1ir")
+region = Rect2(299, 0, 299, 295)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6l6y"]
+atlas = ExtResource("1_ej1ir")
+region = Rect2(598, 0, 299, 295)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g206c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_75kyj")
+}, {
+"duration": 10.0,
+"texture": ExtResource("2_fxxkf")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5get3")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uyjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01g5w")
+}, {
+"duration": 3.5,
+"texture": SubResource("AtlasTexture_t6l6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01g5w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_o0ewe")
+}, {
+"duration": 5.0,
+"texture": ExtResource("6_8unfo")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("7_amj2i")
+}, {
+"duration": 0.8,
+"texture": ExtResource("8_g5wbg")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_amj2i")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_g4ov5")
+}, {
+"duration": 0.8,
+"texture": ExtResource("10_h0tcm")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_g4ov5")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 15
@@ -18,10 +113,6 @@ floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.0472
 floor_snap_length = 9.7
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.46875, 1)
-texture = ExtResource("1_ytfwu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_uklro")
@@ -48,3 +139,14 @@ script = ExtResource("4_fupu2")
 
 [node name="Camera2D" type="Camera2D" parent="CameraFollow"]
 position_smoothing_enabled = true
+
+[node name="AnimationContainer" type="Node2D" parent="."]
+
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="AnimationContainer"]
+position = Vector2(43, -16)
+scale = Vector2(1.747, 1.747)
+sprite_frames = SubResource("SpriteFrames_g206c")
+animation = &"Jump"
+frame = 1
+frame_progress = 0.794864
+script = ExtResource("11_32fhv")

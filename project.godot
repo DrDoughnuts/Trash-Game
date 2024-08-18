@@ -26,6 +26,13 @@ directories/dtl_directory={}
 layout/style_list=["res://GMTK-2024/Dialogic/default_style.tres"]
 layout/default_style="res://GMTK-2024/Dialogic/default_style.tres"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/size/resizable=false
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/rmsmartshape/plugin.cfg")

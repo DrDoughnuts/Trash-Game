@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://s10ttop8ei8t"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_dtd4m"]
+[ext_resource type="Texture2D" uid="uid://cqu7tj6ia6btx" path="res://GMTK-2024/Pickables/Pickable Instances/PAPER_Tube.png" id="2_vbpx0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma76g"]
+size = Vector2(74.2727, 263.357)
+
+[node name="Pickable_paper_tube" instance=ExtResource("1_dtd4m")]
+garbage_type = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(9.14658, 13.4572)
+rotation = -0.546464
+shape = SubResource("RectangleShape2D_ma76g")
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.277989, 0.277989)
+texture = ExtResource("2_vbpx0")
+
+[editable path="LigtningEffect"]

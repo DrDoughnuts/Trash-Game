@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c53kk3sjxary1"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_7d5h1"]
+[ext_resource type="Texture2D" uid="uid://cs72bc7ky62p7" path="res://GMTK-2024/Pickables/Pickable Instances/PAPER_Box.png" id="2_3ynfo"]
+
+[node name="Pickable_paper_box" instance=ExtResource("1_7d5h1")]
+garbage_type = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2(10.3759, 10.5304)
+rotation = -0.688731
+shape = null
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.201119, 0.201119)
+texture = ExtResource("2_3ynfo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+rotation = 1.56936
+polygon = PackedVector2Array(54.9079, 64.079, 77.9899, 7.11212, 16.1135, -78.9769, -50.9194, -56.0733, -57.0632, 43.918, -10.1437, 99.9855, 50.8749, 87.0732)
+
+[editable path="LigtningEffect"]

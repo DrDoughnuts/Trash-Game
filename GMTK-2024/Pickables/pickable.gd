@@ -5,19 +5,20 @@ class_name Pickable
 @onready var mouse_in: bool = false
 @export var held_damping: float = 2.0
 @onready var sfx_hold := preload("res://GMTK-2024/Player/Magnet/sfx_magnet_hold.wav")
-
-
+enum Garbage_type{
+	PLASTIC,
+	METAL,
+	PAPER,
+	RUBBER
+}
+@export var garbage_type : Garbage_type = Garbage_type.PLASTIC
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("pickables")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("magnet") && mouse_in:
-		if get_tree().get_node_count_in_group("held") < PlayerStats.magnet_limit:
-			held = true
-	
+func _process(_delta: float) -> void:	
 	if held == true:
 		gravity_scale = 0
 		
@@ -58,8 +59,13 @@ func _process(_delta: float) -> void:
 	$Distortion.visible = held
 
 
-func _on_mouse_entered() -> void:
+"""func _on_mouse_entered() -> void:
 	mouse_in = true
 
-func _on_mouse_exited() -> void:
+func _on_mouse_exited() -> void d:
 	mouse_in = false
+"""
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		if Input.is_action_just_pressed("magnet") && get_tree().get_node_count_in_group("held") < PlayerStats.magnet_limit:
+			held = true

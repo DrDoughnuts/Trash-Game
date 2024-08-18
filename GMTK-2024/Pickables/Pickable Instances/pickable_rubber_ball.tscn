@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cibnauap0tocd"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_k7sm3"]
+[ext_resource type="Texture2D" uid="uid://jbpue2owdoyq" path="res://GMTK-2024/Pickables/Pickable Instances/RUBBER_Ball.png" id="2_bh3hx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_11hjs"]
+bounce = 0.66
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5cex"]
+radius = 31.0161
+
+[node name="Pickable_rubber_ball" instance=ExtResource("1_k7sm3")]
+physics_material_override = SubResource("PhysicsMaterial_11hjs")
+garbage_type = 3
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_c5cex")
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.0889009, 0.0889009)
+texture = ExtResource("2_bh3hx")
+
+[editable path="LigtningEffect"]

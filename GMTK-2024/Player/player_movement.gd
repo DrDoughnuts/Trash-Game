@@ -1,6 +1,6 @@
 extends Node2D
-@export var max_speed: float = 350
-@export var acc: float = 550
+@export var max_speed: float = 550
+@export var acc: float = 800
 @export var dec: float = 900
 @export var jumps: int = 1
 @export var jump_height: float = -700

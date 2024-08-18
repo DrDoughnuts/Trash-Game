@@ -1,80 +1,25 @@
-[gd_scene load_steps=53 format=3 uid="uid://bbvdk85vhs06h"]
+[gd_scene load_steps=51 format=3 uid="uid://bbvdk85vhs06h"]
 
 [ext_resource type="PackedScene" uid="uid://ck167ib0wmj7x" path="res://GMTK-2024/Player/player.tscn" id="1_vevnb"]
-[ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable.gd" id="1_yfhoa"]
 [ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="2_6yx0u"]
-[ext_resource type="PackedScene" uid="uid://c3bm1501oma1d" path="res://GMTK-2024/Player/Magnet/ligtning_effect.tscn" id="2_h0utj"]
-[ext_resource type="Script" path="res://GMTK-2024/Player/Magnet/ligtning_effect.gd" id="3_ofroo"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape.gd" id="4_kw0r6"]
-[ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable_ray_cast.gd" id="5_b27qy"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="5_i8n1a"]
-[ext_resource type="AudioStream" uid="uid://dobvd8gbwaxkp" path="res://GMTK-2024/Player/Magnet/sfx_magnet_hold.wav" id="6_0vrwt"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="6_y5cts"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="7_f8cc0"]
-[ext_resource type="AudioStream" uid="uid://200hw2rphdo7" path="res://GMTK-2024/Player/Magnet/sfx_magnet_pressed.wav" id="7_h76dv"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="8_imwgv"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="9_s1m5n"]
 [ext_resource type="Texture2D" uid="uid://cthwrfc2nqvib" path="res://GMTK-2024/Placeholder Art/placeholder edge.png" id="10_05nnj"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="11_5v863"]
 [ext_resource type="Texture2D" uid="uid://hrgeymwvlu3s" path="res://GMTK-2024/Placeholder Art/placeholder fill.png" id="12_xh7dh"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="13_5mi03"]
+[ext_resource type="PackedScene" uid="uid://c8i4t785d8t2v" path="res://GMTK-2024/Pickables/Pickable Instances/pickable_paper_bag.tscn" id="14_6n6oi"]
+[ext_resource type="PackedScene" uid="uid://c53kk3sjxary1" path="res://GMTK-2024/Pickables/Pickable Instances/pickable_paper_box.tscn" id="15_pqvkb"]
+[ext_resource type="PackedScene" uid="uid://s10ttop8ei8t" path="res://GMTK-2024/Pickables/Pickable Instances/pickable_paper_tube.tscn" id="16_bn4ht"]
+[ext_resource type="PackedScene" uid="uid://dug6jhhw22cd2" path="res://GMTK-2024/Pickables/Pickable Instances/pickable_plastic_bag.tscn" id="17_vkli7"]
+[ext_resource type="PackedScene" uid="uid://dbrgnv86ujbp3" path="res://GMTK-2024/Pickables/Pickable Instances/pickable_plastic_bottle.tscn" id="18_1f224"]
 [ext_resource type="PackedScene" uid="uid://cl18qbb10rcd6" path="res://GMTK-2024/Pipe/pipe.tscn" id="19_bkvda"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_uyvey"]
-radius = 63.0
-
-[sub_resource type="Shader" id="Shader_eijy2"]
-code = "shader_type canvas_item;
-
-uniform float chaos : hint_range(0., 32.) = 1.;
-
-uniform float radius : hint_range(0., 1.) = 0.5;
-
-uniform float attenuation : hint_range(1., 5.) = 2.;
-
-varying vec2 amount_r;
-varying vec2 amount_g;
-varying vec2 amount_b;
-
-uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
-
-float rand(vec2 co){
-    return fract(sin(dot(co.xy ,vec2(12.9898,78.233))) * 43758.5453) - .5;
-}
-
-void vertex() {
-	vec2 shifted_uv = (UV * 2.) - 1.;
-	amount_r = normalize(
-		vec2(rand(TIME * 1.3 * shifted_uv),
-		rand(TIME * 1.64 * shifted_uv)));
-	amount_g = normalize(
-		vec2(rand(TIME * 1.5 * shifted_uv),
-		rand(TIME * 1.7 * shifted_uv)));
-	amount_b = normalize(
-		vec2(rand(TIME * 1.17 * shifted_uv),
-		rand(TIME * 1.23 * shifted_uv)));
-}
-
-void fragment() {
-	vec2 chaos_v = vec2(chaos, -chaos) * SCREEN_PIXEL_SIZE;
-	
-	float dist = length((UV - vec2(0.5)) * 2.);
-	float att = clamp(dist / radius, 0., 1.);
-	
-	chaos_v *= 1. - pow(att, attenuation);
-	
-	COLOR = vec4(
-		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_r).r,
-		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_g).g,
-		texture(SCREEN_TEXTURE, SCREEN_UV + chaos_v * amount_b).b,
-		1.);
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4y2fv"]
-shader = SubResource("Shader_eijy2")
-shader_parameter/chaos = 13.532
-shader_parameter/radius = 1.0
-shader_parameter/attenuation = 2.871
+[ext_resource type="PackedScene" uid="uid://njq3re8rc04" path="res://GMTK-2024/Pickables/Pickable Instances/pickable_plastic_cup.tscn" id="19_ce2tp"]
+[ext_resource type="PackedScene" uid="uid://cibnauap0tocd" path="res://GMTK-2024/Pickables/Pickable Instances/pickable_rubber_ball.tscn" id="20_1hvk1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwegm"]
 size = Vector2(798.328, 100)
@@ -302,117 +247,6 @@ render_offset = 0.0
 
 [node name="PlatformerTest" type="Node2D"]
 
-[node name="Pickable" type="RigidBody2D" parent="."]
-position = Vector2(260, 428)
-collision_layer = 4
-collision_mask = 15
-input_pickable = true
-script = ExtResource("1_yfhoa")
-
-[node name="LigtningEffect" parent="Pickable" instance=ExtResource("2_h0utj")]
-script = ExtResource("3_ofroo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable"]
-shape = SubResource("CircleShape2D_uyvey")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pickable"]
-texture = ExtResource("2_6yx0u")
-
-[node name="Distortion" type="ColorRect" parent="Pickable"]
-z_index = 20
-material = SubResource("ShaderMaterial_4y2fv")
-offset_left = -101.0
-offset_top = -90.0
-offset_right = 99.0
-offset_bottom = 91.0
-color = Color(1, 1, 1, 0)
-
-[node name="PickableRayCast" type="RayCast2D" parent="Pickable"]
-target_position = Vector2(0, 0)
-collision_mask = 2
-script = ExtResource("5_b27qy")
-
-[node name="SfxHold" type="AudioStreamPlayer2D" parent="Pickable"]
-stream = ExtResource("6_0vrwt")
-volume_db = -3.47
-
-[node name="SfxPressed" type="AudioStreamPlayer2D" parent="Pickable"]
-stream = ExtResource("7_h76dv")
-
-[node name="Pickable2" type="RigidBody2D" parent="."]
-position = Vector2(671, 263)
-collision_layer = 4
-collision_mask = 15
-input_pickable = true
-script = ExtResource("1_yfhoa")
-
-[node name="LigtningEffect" parent="Pickable2" instance=ExtResource("2_h0utj")]
-script = ExtResource("3_ofroo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable2"]
-shape = SubResource("CircleShape2D_uyvey")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pickable2"]
-texture = ExtResource("2_6yx0u")
-
-[node name="Distortion" type="ColorRect" parent="Pickable2"]
-z_index = 20
-material = SubResource("ShaderMaterial_4y2fv")
-offset_left = -101.0
-offset_top = -90.0
-offset_right = 99.0
-offset_bottom = 91.0
-color = Color(1, 1, 1, 0)
-
-[node name="PickableRayCast" type="RayCast2D" parent="Pickable2"]
-target_position = Vector2(0, 0)
-collision_mask = 2
-script = ExtResource("5_b27qy")
-
-[node name="SfxHold" type="AudioStreamPlayer2D" parent="Pickable2"]
-stream = ExtResource("6_0vrwt")
-volume_db = -3.47
-
-[node name="SfxPressed" type="AudioStreamPlayer2D" parent="Pickable2"]
-stream = ExtResource("7_h76dv")
-
-[node name="Pickable3" type="RigidBody2D" parent="."]
-position = Vector2(-120, 652)
-collision_layer = 4
-collision_mask = 15
-input_pickable = true
-script = ExtResource("1_yfhoa")
-
-[node name="LigtningEffect" parent="Pickable3" instance=ExtResource("2_h0utj")]
-script = ExtResource("3_ofroo")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickable3"]
-shape = SubResource("CircleShape2D_uyvey")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pickable3"]
-texture = ExtResource("2_6yx0u")
-
-[node name="Distortion" type="ColorRect" parent="Pickable3"]
-z_index = 20
-material = SubResource("ShaderMaterial_4y2fv")
-offset_left = -101.0
-offset_top = -90.0
-offset_right = 99.0
-offset_bottom = 91.0
-color = Color(1, 1, 1, 0)
-
-[node name="PickableRayCast" type="RayCast2D" parent="Pickable3"]
-target_position = Vector2(0, 0)
-collision_mask = 2
-script = ExtResource("5_b27qy")
-
-[node name="SfxHold" type="AudioStreamPlayer2D" parent="Pickable3"]
-stream = ExtResource("6_0vrwt")
-volume_db = -3.47
-
-[node name="SfxPressed" type="AudioStreamPlayer2D" parent="Pickable3"]
-stream = ExtResource("7_h76dv")
-
 [node name="Player" parent="." instance=ExtResource("1_vevnb")]
 position = Vector2(375, 247)
 floor_stop_on_slope = true
@@ -482,13 +316,23 @@ polygon = PackedVector2Array(-339.805, 543.365, -120.382, 912.685, -110.102, 913
 [node name="Pipe" parent="." instance=ExtResource("19_bkvda")]
 position = Vector2(1509, 832)
 
-[connection signal="mouse_entered" from="Pickable" to="Pickable" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Pickable" to="Pickable" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Pickable2" to="Pickable2" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Pickable2" to="Pickable2" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="Pickable3" to="Pickable3" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Pickable3" to="Pickable3" method="_on_mouse_exited"]
+[node name="Pickable_paper_bag" parent="." instance=ExtResource("14_6n6oi")]
+position = Vector2(-161, 359)
 
-[editable path="Pickable/LigtningEffect"]
-[editable path="Pickable2/LigtningEffect"]
-[editable path="Pickable3/LigtningEffect"]
+[node name="Pickable_paper_box" parent="." instance=ExtResource("15_pqvkb")]
+position = Vector2(1161, 536)
+
+[node name="Pickable_paper_tube" parent="." instance=ExtResource("16_bn4ht")]
+position = Vector2(520, 976)
+
+[node name="Pickable" parent="." instance=ExtResource("17_vkli7")]
+position = Vector2(235, 847)
+
+[node name="Pickable_Plastic_Bottle" parent="." instance=ExtResource("18_1f224")]
+position = Vector2(906, 898)
+
+[node name="Pickable_plastic_cup" parent="." instance=ExtResource("19_ce2tp")]
+position = Vector2(76, 356)
+
+[node name="Pickable_rubber_ball" parent="." instance=ExtResource("20_1hvk1")]
+position = Vector2(1380, 245)
