@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cl18qbb10rcd6"]
 
-[ext_resource type="Script" path="res://pipe.gd" id="1_0dwxt"]
-[ext_resource type="Texture2D" uid="uid://cupkjl4wxojqp" path="res://GMTK-2024/Pipe/Mario_pipe.png" id="2_svfm0"]
+[ext_resource type="Script" path="res://GMTK-2024/Pipe/pipe.gd" id="1_0dwxt"]
+[ext_resource type="Texture2D" uid="uid://e8f8pi4bfct2" path="res://GMTK-2024/Pipe/Trash_PipeMTL.png" id="2_62neh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwa22"]
-size = Vector2(228, 297)
+size = Vector2(92, 139)
 
 [node name="Pipe" type="Area2D"]
 collision_layer = 2
@@ -13,11 +13,12 @@ script = ExtResource("1_0dwxt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.470588, 0.301961, 0, 1)
-texture = ExtResource("2_svfm0")
+scale = Vector2(0.162385, 0.162385)
+texture = ExtResource("2_62neh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-2, 2.5)
+position = Vector2(0, 31.5)
+scale = Vector2(1.00563, 1)
 shape = SubResource("RectangleShape2D_wwa22")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
