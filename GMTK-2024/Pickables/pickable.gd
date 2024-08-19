@@ -68,7 +68,8 @@ func _process(_delta: float) -> void:
 func _on_mouse_exited() -> void d:
 	mouse_in = false
 """
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+"""func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("magnet") && get_tree().get_node_count_in_group("held") < PlayerStats.magnet_limit:
 			held = true
+"""

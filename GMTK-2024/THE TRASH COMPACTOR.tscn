@@ -926,17 +926,60 @@ polygon = PackedVector2Array(669.081, 13417.7, 1590.21, 13465.8, 2873.35, 13671.
 [node name="Sfx_rumble" parent="TrashPile" index="1"]
 position = Vector2(161, 2)
 
-[node name="Pipe" parent="." instance=ExtResource("13_fqa2i")]
-position = Vector2(3718, 458)
+[node name="Pipe_Plastic" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(4955, -635)
+rotation = -0.957633
 
-[node name="Pipe2" parent="." instance=ExtResource("13_fqa2i")]
+[node name="Pipe_Plastic2" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(4980, -2720)
+rotation = -0.666091
+
+[node name="Pipe_Plastic3" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(-1493, -7922)
+rotation = 1.29052
+
+[node name="Pipe_Plastic4" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(5291, -10475)
+rotation = 4.34413
+
+[node name="Pipe_Metal" parent="." instance=ExtResource("13_fqa2i")]
 position = Vector2(-1044, -1406)
 rotation = 2.14681
 mytype = 1
 
-[node name="Pipe3" parent="." instance=ExtResource("13_fqa2i")]
+[node name="Pipe_Metal2" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(4774, -4819)
+rotation = 4.41377
+mytype = 1
+
+[node name="Pipe_Metal3" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(3395, -8535)
+rotation = 4.41377
+mytype = 1
+
+[node name="Pipe_Metal4" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(1585, -11795)
+rotation = 6.6547
+mytype = 1
+
+[node name="Pipe_Paper" parent="." instance=ExtResource("13_fqa2i")]
 position = Vector2(3217, -1486)
 rotation = -2.24219
+mytype = 2
+
+[node name="Pipe_Paper2" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(-1308, -4877)
+rotation = -4.8614
+mytype = 2
+
+[node name="Pipe_Paper3" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(4821, -7445)
+rotation = -2.24219
+mytype = 2
+
+[node name="Pipe_Paper4" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(1513, -10394)
+rotation = -3.77373
 mytype = 2
 
 [node name="Pickable_paper_bag" parent="." instance=ExtResource("14_xp2qb")]

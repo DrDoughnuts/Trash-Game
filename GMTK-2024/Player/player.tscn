@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ck167ib0wmj7x"]
+[gd_scene load_steps=26 format=3 uid="uid://ck167ib0wmj7x"]
 
 [ext_resource type="Texture2D" uid="uid://corev1i3drvjy" path="res://GMTK-2024/Player/Player Art/Death1.png" id="1_75kyj"]
 [ext_resource type="Texture2D" uid="uid://cln3imnsljkm8" path="res://GMTK-2024/Player/Player Art/Idle.png" id="1_ej1ir"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://djv1srlml8g27" path="res://GMTK-2024/Player/Player Art/Damage.png" id="10_sdpgu"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/player_animation.gd" id="11_32fhv"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/player_take_damage.gd" id="19_prkaq"]
+[ext_resource type="PackedScene" uid="uid://f07obn5xqmqs" path="res://GMTK-2024/Player/mouse_detector.tscn" id="20_yhqkj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uklro"]
 radius = 68.0
@@ -170,3 +171,6 @@ script = ExtResource("11_32fhv")
 
 [node name="PlayerTakeDamage" type="Node2D" parent="."]
 script = ExtResource("19_prkaq")
+
+[node name="MouseDetector" parent="." instance=ExtResource("20_yhqkj")]
+position = Vector2(345, 16)
