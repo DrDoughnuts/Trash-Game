@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ypnu8rfxhufm"]
+[gd_scene load_steps=11 format=3 uid="uid://ypnu8rfxhufm"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_7q5jk"]
 [ext_resource type="Texture2D" uid="uid://bp6jtc6h4y27c" path="res://GMTK-2024/Enemy/Enemy1.png" id="2_5cngc"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://d0s5tdvemcxvx" path="res://GMTK-2024/Enemy/Enemy2.png" id="3_3gfx1"]
 [ext_resource type="Texture2D" uid="uid://jjvr4ud6th3h" path="res://GMTK-2024/Enemy/EnemyDeath2.png" id="3_sxxcc"]
 [ext_resource type="Texture2D" uid="uid://dhv0njrn3lgf" path="res://GMTK-2024/Enemy/EnemyDeath3.png" id="4_l4u60"]
+[ext_resource type="AudioStream" uid="uid://ciiob2o8aqm5r" path="res://GMTK-2024/Enemy/Sfx_Oof.wav" id="7_lt765"]
+[ext_resource type="AudioStream" uid="uid://choxcec7badfx" path="res://GMTK-2024/Enemy/Sfx_Splat.wav" id="8_36x0h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3jqw"]
 animations = [{
@@ -58,6 +60,13 @@ frame_progress = 0.119078
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_w6vyb")
+
+[node name="Sfx_Oof" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_lt765")
+volume_db = -4.793
+
+[node name="Sfx_Splat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_36x0h")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

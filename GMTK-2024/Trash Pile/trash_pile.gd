@@ -3,6 +3,8 @@ extends Node2D
 @onready var startx: float = global_position.x
 @export var endy: float = -800.0
 @onready var moving: bool = false
+@onready var falling: bool = false
+@onready var fall_speed: float = 500.0
 @onready var myvalue: float = 0.0
 @export var rise_speed: float = 50.0
 @export var shake_strength: float = 15.0
@@ -16,8 +18,17 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if myvalue <= Trashmanager.trash:
 		moving = true
+		falling = false
+	elif myvalue >= Trashmanager.trash:
+		falling = true
+		moving = false
 	else:
 		moving = false
+		falling = false
+		$Sfx_rumble.stop()
+	if abs(Trashmanager.trash - myvalue) < fall_speed * delta:
+		moving = false
+		falling = false
 		$Sfx_rumble.stop()
 	if moving:
 		position.y -= rise_speed * delta
@@ -25,4 +36,12 @@ func _process(delta: float) -> void:
 		position.x = startx + randf_range(-shake_strength, shake_strength)
 		if not $Sfx_rumble.playing:
 			$Sfx_rumble.play()
+	if falling:
+		position.y += fall_speed * delta
+		myvalue -= fall_speed * delta
+		position.x = startx + randf_range(-shake_strength, shake_strength)
+		if not $Sfx_rumble.playing:
+			$Sfx_rumble.play()
+
+		
 		
