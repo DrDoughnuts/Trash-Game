@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://ypnu8rfxhufm"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_7q5jk"]
+[ext_resource type="Texture2D" uid="uid://bp6jtc6h4y27c" path="res://GMTK-2024/Enemy/Enemy1.png" id="2_5cngc"]
+[ext_resource type="Texture2D" uid="uid://d0eyigu3ymf6m" path="res://GMTK-2024/Enemy/EnemyDeath1.png" id="2_5jv0p"]
+[ext_resource type="Texture2D" uid="uid://d0s5tdvemcxvx" path="res://GMTK-2024/Enemy/Enemy2.png" id="3_3gfx1"]
+[ext_resource type="Texture2D" uid="uid://jjvr4ud6th3h" path="res://GMTK-2024/Enemy/EnemyDeath2.png" id="3_sxxcc"]
+[ext_resource type="Texture2D" uid="uid://dhv0njrn3lgf" path="res://GMTK-2024/Enemy/EnemyDeath3.png" id="4_l4u60"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3jqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5jv0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_sxxcc")
+}, {
+"duration": 5.0,
+"texture": ExtResource("4_l4u60")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5cngc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3gfx1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6vyb"]
+radius = 73.0069
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 29
+gravity_scale = 0.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 5
+linear_damp = 0.5
+script = ExtResource("1_7q5jk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(27, -13)
+sprite_frames = SubResource("SpriteFrames_a3jqw")
+animation = &"dead"
+frame = 1
+frame_progress = 0.119078
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_w6vyb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

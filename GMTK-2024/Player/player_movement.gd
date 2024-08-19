@@ -15,22 +15,23 @@ func _physics_process(delta: float) -> void:
 	
 	#if player.is_on_ceiling() && player.is_on_floor():
 	#	pass
+	if $"../PlayerTakeDamage".hurt_timer <= 0:
+		# Handle jump.
+		if Input.is_action_just_pressed("jump") and player.is_on_floor():
+			player.velocity.y = jump_height
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and player.is_on_floor():
-		player.velocity.y = jump_height
-
-	#Move Left & Right
-	if Input.is_action_pressed("move_left"):
-		player.velocity.x -= acc * delta
-	elif Input.is_action_pressed("move_right"):
-		player.velocity.x += acc * delta
-	else:
-		player.velocity.x -= sign(player.velocity.x) * dec * delta
-		if abs(player.velocity.x) < dec * delta:
-			player.velocity.x = 0
-		
-	player.velocity.x = clamp(player.velocity.x, -max_speed, max_speed)
+		#Move Left & Right
+		if Input.is_action_pressed("move_left"):
+			player.velocity.x -= acc * delta
+		elif Input.is_action_pressed("move_right"):
+			player.velocity.x += acc * delta
+		else:
+			player.velocity.x -= sign(player.velocity.x) * dec * delta
+			if abs(player.velocity.x) < dec * delta:
+				player.velocity.x = 0
+			
+		player.velocity.x = clamp(player.velocity.x, -max_speed, max_speed)
+	
 
 	#Fall through One Way Platforms
 	player.set_collision_mask_value(6, not Input.is_action_pressed("down"))

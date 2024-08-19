@@ -21,8 +21,13 @@ func _process(_delta: float) -> void:
 			animation = "Fall"
 			speed_scale = 1
 	
+	if $"../../PlayerTakeDamage".hurt_timer > 0:
+		animation = "Hurt"
+		speed_scale = 1
+	
 	if get_global_mouse_position().x > get_parent().global_position.x:
 		$"..".scale.x = abs($"..".scale.x)
 	else:
 		$"..".scale.x = -abs($"..".scale.x)
+	
 	

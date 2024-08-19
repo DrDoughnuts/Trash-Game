@@ -6,6 +6,7 @@ class_name Pickable
 @export var held_damping: float = 2.0
 @export var value: float = 150
 @onready var sfx_hold := preload("res://GMTK-2024/Player/Magnet/sfx_magnet_hold.wav")
+@onready var read_velocity: Vector2 = Vector2(0,0)
 enum Garbage_type{
 	PLASTIC,
 	METAL,
@@ -36,7 +37,7 @@ func _process(_delta: float) -> void:
 		add_to_group("held")
 		remove_from_group("pickables")
 		
-		z_index = -1
+		z_index = 8
 		
 		if not $SfxHold.playing:
 			$SfxHold.playing = true
@@ -55,9 +56,11 @@ func _process(_delta: float) -> void:
 		remove_from_group("held")
 		$SfxHold.playing = false
 		
-		z_index = 1
+		z_index = 3
 		
 	$Distortion.visible = held
+	
+	read_velocity = linear_velocity
 
 
 """func _on_mouse_entered() -> void:

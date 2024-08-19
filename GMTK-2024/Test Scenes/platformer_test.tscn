@@ -25,7 +25,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwegm"]
 size = Vector2(798.328, 100)
 
-[sub_resource type="Resource" id="Resource_jl6vt"]
+[sub_resource type="Resource" id="Resource_wwqk3"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -36,9 +36,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-339.801, 543.617)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_jl6vt")
+properties = SubResource("Resource_wwqk3")
 
-[sub_resource type="Resource" id="Resource_cshx5"]
+[sub_resource type="Resource" id="Resource_0slws"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -49,9 +49,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(57.9268, 1130.95)
 point_in = Vector2(64.5617, -219.766)
 point_out = Vector2(226.267, 222.547)
-properties = SubResource("Resource_cshx5")
+properties = SubResource("Resource_0slws")
 
-[sub_resource type="Resource" id="Resource_biqtr"]
+[sub_resource type="Resource" id="Resource_d202s"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -62,9 +62,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(868.763, 1260.08)
 point_in = Vector2(-119.978, 1.40662)
 point_out = Vector2(-5.66327, -147.244)
-properties = SubResource("Resource_biqtr")
+properties = SubResource("Resource_d202s")
 
-[sub_resource type="Resource" id="Resource_yf8j6"]
+[sub_resource type="Resource" id="Resource_h5wqg"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -75,9 +75,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(1042.22, 1617.44)
 point_in = Vector2(214.96, -144.25)
 point_out = Vector2(-214.96, 144.25)
-properties = SubResource("Resource_yf8j6")
+properties = SubResource("Resource_h5wqg")
 
-[sub_resource type="Resource" id="Resource_vqav5"]
+[sub_resource type="Resource" id="Resource_rbbiy"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -88,9 +88,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-339.801, 543.617)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_vqav5")
+properties = SubResource("Resource_rbbiy")
 
-[sub_resource type="Resource" id="Resource_tgeue"]
+[sub_resource type="Resource" id="Resource_8f75c"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -101,9 +101,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-409.843, 1636.98)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_tgeue")
+properties = SubResource("Resource_8f75c")
 
-[sub_resource type="Resource" id="Resource_2n81v"]
+[sub_resource type="Resource" id="Resource_gxvip"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -114,9 +114,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-694.536, 783.518)
 point_in = Vector2(-209.54, -67.9589)
 point_out = Vector2(209.54, 67.9589)
-properties = SubResource("Resource_2n81v")
+properties = SubResource("Resource_gxvip")
 
-[sub_resource type="Resource" id="Resource_3okwd"]
+[sub_resource type="Resource" id="Resource_6hkyr"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -127,9 +127,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(-913.045, 1307.76)
 point_in = Vector2(84.9486, 190.662)
 point_out = Vector2(-84.9486, -190.662)
-properties = SubResource("Resource_3okwd")
+properties = SubResource("Resource_6hkyr")
 
-[sub_resource type="Resource" id="Resource_lvgkj"]
+[sub_resource type="Resource" id="Resource_on34m"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -140,9 +140,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(2159.45, 1405.31)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_lvgkj")
+properties = SubResource("Resource_on34m")
 
-[sub_resource type="Resource" id="Resource_8xs2p"]
+[sub_resource type="Resource" id="Resource_x7m6d"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -153,9 +153,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(714.224, 1829.73)
 point_in = Vector2(277.499, -135.918)
 point_out = Vector2(-277.499, 135.918)
-properties = SubResource("Resource_8xs2p")
+properties = SubResource("Resource_x7m6d")
 
-[sub_resource type="Resource" id="Resource_m10ls"]
+[sub_resource type="Resource" id="Resource_7j22j"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -166,9 +166,9 @@ script = ExtResource("6_y5cts")
 position = Vector2(1483.45, 975.387)
 point_in = Vector2(-421.436, 59.397)
 point_out = Vector2(476.873, -89.6351)
-properties = SubResource("Resource_m10ls")
+properties = SubResource("Resource_7j22j")
 
-[sub_resource type="Resource" id="Resource_6i8en"]
+[sub_resource type="Resource" id="Resource_p2505"]
 script = ExtResource("5_i8n1a")
 texture_idx = 0
 flip = false
@@ -179,7 +179,7 @@ script = ExtResource("6_y5cts")
 position = Vector2(-120.413, 912.738)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_6i8en")
+properties = SubResource("Resource_p2505")
 
 [sub_resource type="Resource" id="Resource_esf2b"]
 script = ExtResource("7_f8cc0")
@@ -319,24 +319,38 @@ position = Vector2(1574, 872)
 
 [node name="Pickable_paper_bag" parent="." instance=ExtResource("14_6n6oi")]
 position = Vector2(-161, 359)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Pickable_paper_box" parent="." instance=ExtResource("15_pqvkb")]
 position = Vector2(1161, 536)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Pickable_paper_tube" parent="." instance=ExtResource("16_bn4ht")]
 position = Vector2(520, 976)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Pickable" parent="." instance=ExtResource("17_vkli7")]
 position = Vector2(235, 847)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Pickable_Plastic_Bottle" parent="." instance=ExtResource("18_1f224")]
 position = Vector2(906, 898)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Pickable_plastic_cup" parent="." instance=ExtResource("19_ce2tp")]
 position = Vector2(76, 356)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Pickable_rubber_ball" parent="." instance=ExtResource("20_1hvk1")]
 position = Vector2(1380, 245)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="TrashPile" parent="." instance=ExtResource("21_bqajo")]
 position = Vector2(502, 1339)

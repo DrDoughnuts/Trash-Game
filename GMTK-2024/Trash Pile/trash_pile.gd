@@ -14,10 +14,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if myvalue <= TrashManager.trash:
+	if myvalue <= Trashmanager.trash:
 		moving = true
-		if not $Sfx_rumble.playing:
-			$Sfx_rumble.play()
 	else:
 		moving = false
 		$Sfx_rumble.stop()
@@ -25,4 +23,6 @@ func _process(delta: float) -> void:
 		position.y -= rise_speed * delta
 		myvalue += rise_speed * delta
 		position.x = startx + randf_range(-shake_strength, shake_strength)
+		if not $Sfx_rumble.playing:
+			$Sfx_rumble.play()
 		

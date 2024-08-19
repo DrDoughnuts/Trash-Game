@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 		var thrown : Pickable = held_group[0]
 		thrown.held = false
 		#thrown.linear_velocity = Vector2(0,0)
-		thrown.apply_central_impulse((get_global_mouse_position() - global_position).normalized() * throw_speed)
+		#thrown.apply_central_impulse((get_global_mouse_position() - global_position).normalized() * throw_speed)
 		$SfxRelease.play()
 	if Input.is_action_pressed("throw"):
 		drop_timer += delta
