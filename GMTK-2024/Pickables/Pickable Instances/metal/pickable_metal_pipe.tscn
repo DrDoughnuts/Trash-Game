@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnnr3n5htioww"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_bk4r0"]
+[ext_resource type="Texture2D" uid="uid://3wpw0h7tj8ww" path="res://GMTK-2024/Pickables/Pickable Instances/metal/METAL_Pipe.png" id="2_k5soy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2jrue"]
+radius = 22.0137
+height = 360.0
+
+[node name="Pickable_metal_pipe" instance=ExtResource("1_bk4r0")]
+garbage_type = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(36, 38)
+rotation = -0.717538
+shape = SubResource("CapsuleShape2D_2jrue")
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.361529, 0.361529)
+texture = ExtResource("2_k5soy")
+
+[editable path="LigtningEffect"]

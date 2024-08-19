@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo51s3q1hme15"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_i1xrx"]
+[ext_resource type="Texture2D" uid="uid://b8tmik57ypgf1" path="res://GMTK-2024/Pickables/Pickable Instances/metal/METAL_Toaster.png" id="2_vwr4i"]
+
+[node name="Pickable_metal_toaster" instance=ExtResource("1_i1xrx")]
+garbage_type = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = null
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.24072, 0.24072)
+texture = ExtResource("2_vwr4i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+polygon = PackedVector2Array(-33, 111, 96, 30, 73, -54, 26, -74, -65, -45, -96, -5, -101, 64)
+
+[editable path="LigtningEffect"]

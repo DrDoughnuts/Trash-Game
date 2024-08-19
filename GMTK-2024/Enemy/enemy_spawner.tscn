@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1ie0kaf6r2sr"]
+
+[ext_resource type="Script" path="res://GMTK-2024/Enemy/enemy_spawner.gd" id="1_3ljvx"]
+
+[node name="EnemySpawner" type="Node2D" groups=["enemy_spawner"]]
+script = ExtResource("1_3ljvx")

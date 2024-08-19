@@ -9,3 +9,7 @@ func _process(_delta: float) -> void:
 		var tween = get_tree().create_tween().set_trans(Tween.TRANS_QUAD)
 		tween.tween_property($".", "time_left", start_time, rewind_time)
 		trash = 0
+		var enemy_spawner = get_tree().get_first_node_in_group("enemy_spawner")
+		if enemy_spawner:
+			enemy_spawner.spawn_rate = enemy_spawner.start_rate
+		

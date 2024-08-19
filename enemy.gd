@@ -10,6 +10,8 @@ extends RigidBody2D
 func _ready() -> void:
 	$AnimatedSprite2D.animation = "default"
 	$AnimatedSprite2D.play()
+	$Sfx_enemy_spawn.pitch_scale = randf_range(.75, 1.2)
+	$Sfx_enemy_spawn.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -36,7 +38,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body is Pickable:
-		print(body.read_velocity)
 		if body.read_velocity.length() > hurt_threshold:
 			if not dying:
 				$Sfx_Splat.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ypnu8rfxhufm"]
+[gd_scene load_steps=12 format=3 uid="uid://ypnu8rfxhufm"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_7q5jk"]
 [ext_resource type="Texture2D" uid="uid://bp6jtc6h4y27c" path="res://GMTK-2024/Enemy/Enemy1.png" id="2_5cngc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dhv0njrn3lgf" path="res://GMTK-2024/Enemy/EnemyDeath3.png" id="4_l4u60"]
 [ext_resource type="AudioStream" uid="uid://ciiob2o8aqm5r" path="res://GMTK-2024/Enemy/Sfx_Oof.wav" id="7_lt765"]
 [ext_resource type="AudioStream" uid="uid://choxcec7badfx" path="res://GMTK-2024/Enemy/Sfx_Splat.wav" id="8_36x0h"]
+[ext_resource type="AudioStream" uid="uid://4l4sn6xtmob6" path="res://GMTK-2024/Enemy/Sfx_enemy_spawn.wav" id="9_mtdjk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3jqw"]
 animations = [{
@@ -41,6 +42,7 @@ animations = [{
 radius = 73.0069
 
 [node name="Enemy" type="RigidBody2D"]
+z_index = 180
 collision_layer = 8
 collision_mask = 29
 gravity_scale = 0.0
@@ -67,5 +69,11 @@ volume_db = -4.793
 
 [node name="Sfx_Splat" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_36x0h")
+
+[node name="Sfx_enemy_spawn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_mtdjk")
+volume_db = -11.45
+max_distance = 10840.0
+panning_strength = 5.45
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

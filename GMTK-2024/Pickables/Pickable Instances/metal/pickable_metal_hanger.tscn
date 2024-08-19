@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://du250cjk4j31g"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_hfbd1"]
+[ext_resource type="Texture2D" uid="uid://cx0a5fs01cel4" path="res://GMTK-2024/Pickables/Pickable Instances/metal/METAL_Hanger.png" id="2_t1r2k"]
+
+[node name="Pickable_metal_hanger" instance=ExtResource("1_hfbd1")]
+garbage_type = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = null
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.305941, 0.305941)
+texture = ExtResource("2_t1r2k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+polygon = PackedVector2Array(162, 75, -134, 106, -18, -65)
+
+[editable path="LigtningEffect"]

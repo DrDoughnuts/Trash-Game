@@ -319,36 +319,43 @@ position = Vector2(1574, 872)
 
 [node name="Pickable_paper_bag" parent="." instance=ExtResource("14_6n6oi")]
 position = Vector2(-161, 359)
+collision_mask = 15
 contact_monitor = false
 max_contacts_reported = 0
 
 [node name="Pickable_paper_box" parent="." instance=ExtResource("15_pqvkb")]
 position = Vector2(1161, 536)
+collision_mask = 15
 contact_monitor = false
 max_contacts_reported = 0
 
 [node name="Pickable_paper_tube" parent="." instance=ExtResource("16_bn4ht")]
 position = Vector2(520, 976)
+collision_mask = 15
 contact_monitor = false
 max_contacts_reported = 0
 
 [node name="Pickable" parent="." instance=ExtResource("17_vkli7")]
 position = Vector2(235, 847)
+collision_mask = 15
 contact_monitor = false
 max_contacts_reported = 0
 
 [node name="Pickable_Plastic_Bottle" parent="." instance=ExtResource("18_1f224")]
 position = Vector2(906, 898)
+collision_mask = 15
 contact_monitor = false
 max_contacts_reported = 0
 
 [node name="Pickable_plastic_cup" parent="." instance=ExtResource("19_ce2tp")]
 position = Vector2(76, 356)
+collision_mask = 15
 contact_monitor = false
 max_contacts_reported = 0
 
 [node name="Pickable_rubber_ball" parent="." instance=ExtResource("20_1hvk1")]
 position = Vector2(1380, 245)
+collision_mask = 15
 contact_monitor = false
 max_contacts_reported = 0
 

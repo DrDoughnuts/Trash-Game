@@ -36,7 +36,7 @@ shader_parameter/background_noise = SubResource("NoiseTexture2D_08yis")
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g6tn5"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kq7qb"]
-width = 107
+width = 312
 height = 1
 invert = true
 noise = SubResource("FastNoiseLite_g6tn5")

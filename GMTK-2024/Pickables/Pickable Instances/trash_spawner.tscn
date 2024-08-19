@@ -1,0 +1,20 @@
+[gd_scene load_steps=14 format=3 uid="uid://ciplhr0qo2fav"]
+
+[ext_resource type="Script" path="res://trash_spawner.gd" id="1_s4uun"]
+[ext_resource type="PackedScene" uid="uid://fj8sfdrnvexc" path="res://GMTK-2024/Pickables/Pickable Instances/metal/pickable_metal_collinder.tscn" id="2_tmnqe"]
+[ext_resource type="PackedScene" uid="uid://du250cjk4j31g" path="res://GMTK-2024/Pickables/Pickable Instances/metal/pickable_metal_hanger.tscn" id="3_p2y0u"]
+[ext_resource type="PackedScene" uid="uid://dnnr3n5htioww" path="res://GMTK-2024/Pickables/Pickable Instances/metal/pickable_metal_pipe.tscn" id="4_0xncb"]
+[ext_resource type="PackedScene" uid="uid://bo51s3q1hme15" path="res://GMTK-2024/Pickables/Pickable Instances/metal/pickable_metal_toaster.tscn" id="5_30qcx"]
+[ext_resource type="PackedScene" uid="uid://c8i4t785d8t2v" path="res://GMTK-2024/Pickables/Pickable Instances/paper/pickable_paper_bag.tscn" id="6_cd4y6"]
+[ext_resource type="PackedScene" uid="uid://c53kk3sjxary1" path="res://GMTK-2024/Pickables/Pickable Instances/paper/pickable_paper_box.tscn" id="7_mi66o"]
+[ext_resource type="PackedScene" uid="uid://s10ttop8ei8t" path="res://GMTK-2024/Pickables/Pickable Instances/paper/pickable_paper_tube.tscn" id="8_724e4"]
+[ext_resource type="PackedScene" uid="uid://bkpmn6g7ig1jp" path="res://GMTK-2024/Pickables/Pickable Instances/paper/pickable_paper_book.tscn" id="9_pv18k"]
+[ext_resource type="PackedScene" uid="uid://dug6jhhw22cd2" path="res://GMTK-2024/Pickables/Pickable Instances/plastic/pickable_plastic_bag.tscn" id="10_jx8gb"]
+[ext_resource type="PackedScene" uid="uid://dbrgnv86ujbp3" path="res://GMTK-2024/Pickables/Pickable Instances/plastic/pickable_plastic_bottle.tscn" id="11_mlw0g"]
+[ext_resource type="PackedScene" uid="uid://njq3re8rc04" path="res://GMTK-2024/Pickables/Pickable Instances/plastic/pickable_plastic_cup.tscn" id="12_d7txh"]
+[ext_resource type="PackedScene" uid="uid://cv1q4s42e21kd" path="res://GMTK-2024/Pickables/Pickable Instances/plastic/pickable_plastic_spork.tscn" id="13_dhgqp"]
+
+[node name="trash_spawner" type="Node2D"]
+script = ExtResource("1_s4uun")
+pickables = Array[PackedScene]([ExtResource("2_tmnqe"), ExtResource("3_p2y0u"), ExtResource("4_0xncb"), ExtResource("5_30qcx"), ExtResource("6_cd4y6"), ExtResource("7_mi66o"), ExtResource("8_724e4"), ExtResource("9_pv18k"), ExtResource("10_jx8gb"), ExtResource("11_mlw0g"), ExtResource("12_d7txh"), ExtResource("13_dhgqp")])
+spawn_rate = 0.25
