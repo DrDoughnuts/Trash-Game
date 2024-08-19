@@ -1,15 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddm5hrj7d0cmq"]
+[gd_scene load_steps=13 format=3 uid="uid://ddm5hrj7d0cmq"]
 
 [ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable.gd" id="1_ru7p0"]
 [ext_resource type="PackedScene" uid="uid://c3bm1501oma1d" path="res://GMTK-2024/Player/Magnet/ligtning_effect.tscn" id="2_oaqh4"]
-[ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="2_ygjcx"]
+[ext_resource type="Texture2D" uid="uid://dlqklwar5s6rc" path="res://icon.svg" id="2_ygjcx"]
 [ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable_ray_cast.gd" id="3_kstcs"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/Magnet/ligtning_effect.gd" id="3_ykq2q"]
+[ext_resource type="Shader" path="res://GMTK-2024/Pickables/highlight.gdshader" id="4_r8vfq"]
 [ext_resource type="AudioStream" uid="uid://dobvd8gbwaxkp" path="res://GMTK-2024/Player/Magnet/sfx_magnet_hold.wav" id="6_yyjkv"]
 [ext_resource type="AudioStream" uid="uid://200hw2rphdo7" path="res://GMTK-2024/Player/Magnet/sfx_magnet_pressed.wav" id="7_ryd0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uyvey"]
-radius = 70.2567
+radius = 93.0484
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_evfk0"]
+shader = ExtResource("4_r8vfq")
+shader_parameter/size_effect = 0.2
+shader_parameter/speed = 0.545
+shader_parameter/highlight_strength = 0.55
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
 
 [sub_resource type="Shader" id="Shader_eijy2"]
 code = "shader_type canvas_item;
@@ -80,6 +89,7 @@ script = ExtResource("3_ykq2q")
 shape = SubResource("CircleShape2D_uyvey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_evfk0")
 texture = ExtResource("2_ygjcx")
 
 [node name="Distortion" type="ColorRect" parent="."]

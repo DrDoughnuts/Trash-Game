@@ -26,5 +26,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Pickable:
 		if body.garbage_type == mytype:
 			Trashmanager.trash += body.value
+			$Sfx_trash_in.pitch_scale = randf_range(.8, 1.4)
 			$Sfx_trash_in.play()
 			body.queue_free()

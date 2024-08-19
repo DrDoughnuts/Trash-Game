@@ -21,7 +21,11 @@ func _process(delta: float) -> void:
 		if death_timer <= 0:
 			queue_free()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	if player.global_position.x > global_position.x:
+		$AnimatedSprite2D.scale.x = -abs($AnimatedSprite2D.scale.x)
+	else:
+		$AnimatedSprite2D.scale.x = abs($AnimatedSprite2D.scale.x)
 	if not dying:
 		apply_central_force((player.global_position - global_position).normalized() * speed)
 	else:
@@ -39,6 +43,7 @@ func _on_body_entered(body: Node) -> void:
 			dying = true
 	elif body == player && not dying:
 		if player.get_node("PlayerTakeDamage").hurt_timer <= 0:
+			apply_central_impulse((global_position - player.global_position).normalized() * speed * 3)
 			Trashmanager.trash -= damage
 			player.get_node("PlayerTakeDamage").hurt_timer = player.get_node("PlayerTakeDamage").hurt_length
 			$Sfx_Oof.pitch_scale = randf_range(.8, 1.2)

@@ -10,15 +10,14 @@ config_version=5
 
 [application]
 
-config/name="GMTK 2024"
+config/name="Litter Ladder"
 run/main_scene="res://GMTK-2024/THE TRASH COMPACTOR.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://GMTK-2024/Enemy/Enemy1.png"
 
 [autoload]
 
 PlayerStats="*res://GMTK-2024/player_stats.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Trashmanager="*res://trashmanager.gd"
 
 [dialogic]
@@ -34,10 +33,12 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/size/resizable=false
+mouse_cursor/custom_image="res://GMTK-2024/UI/Magnet_cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(24, 24)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/rmsmartshape/plugin.cfg")
+enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
 
 [global_group]
 

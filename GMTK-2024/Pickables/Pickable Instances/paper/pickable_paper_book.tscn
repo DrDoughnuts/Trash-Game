@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkpmn6g7ig1jp"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_0whtp"]
+[ext_resource type="Texture2D" uid="uid://criu6nb0l04lx" path="res://GMTK-2024/Pickables/Pickable Instances/paper/PAPER_Book.png" id="2_gq3sk"]
+
+[node name="Pickable_paper_book" instance=ExtResource("1_0whtp")]
+garbage_type = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2.45561, -3.79706)
+rotation = 0.944653
+shape = null
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.212071, 0.212071)
+texture = ExtResource("2_gq3sk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+position = Vector2(2, -6)
+polygon = PackedVector2Array(10, 97, 104, 46, -29, -63, -90, -64, -98, 28)
+
+[editable path="LigtningEffect"]

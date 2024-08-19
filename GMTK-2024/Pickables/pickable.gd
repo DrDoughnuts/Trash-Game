@@ -37,7 +37,7 @@ func _process(_delta: float) -> void:
 		add_to_group("held")
 		remove_from_group("pickables")
 		
-		z_index = 8
+		z_index = 20
 		
 		if not $SfxHold.playing:
 			$SfxHold.playing = true
@@ -55,8 +55,7 @@ func _process(_delta: float) -> void:
 		add_to_group("pickables")
 		remove_from_group("held")
 		$SfxHold.playing = false
-		
-		z_index = 3
+		z_index = 18
 		
 	$Distortion.visible = held
 	

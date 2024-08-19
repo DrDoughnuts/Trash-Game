@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv1q4s42e21kd"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_42v6i"]
+[ext_resource type="Texture2D" uid="uid://clh13uv5u8mp8" path="res://GMTK-2024/Pickables/Pickable Instances/plastic/PLASTIC_Spork.png" id="2_iiypq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i38xp"]
+radius = 38.5027
+height = 243.151
+
+[node name="Pickable_plastic_spork" instance=ExtResource("1_42v6i")]
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-3, 17)
+rotation = -0.959594
+shape = SubResource("CapsuleShape2D_i38xp")
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.196052, 0.196052)
+texture = ExtResource("2_iiypq")
+
+[editable path="LigtningEffect"]

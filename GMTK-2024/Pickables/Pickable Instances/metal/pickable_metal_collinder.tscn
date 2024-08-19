@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://fj8sfdrnvexc"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_ntix2"]
+[ext_resource type="Texture2D" uid="uid://niub5ovwdh38" path="res://GMTK-2024/Pickables/Pickable Instances/metal/METAL_Collander.png" id="2_plplf"]
+
+[node name="Pickable_metal_collinder" instance=ExtResource("1_ntix2")]
+garbage_type = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -13)
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(0, -33)
+scale = Vector2(0.333331, 0.333331)
+texture = ExtResource("2_plplf")
+
+[editable path="LigtningEffect"]

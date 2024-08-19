@@ -152,7 +152,7 @@ volume_db = -3.965
 
 [node name="CameraFollow" type="Node2D" parent="."]
 script = ExtResource("4_fupu2")
-view_distance = 300.0
+view_distance = 850.18
 yoffset = -149.87
 
 [node name="Camera2D" type="Camera2D" parent="CameraFollow"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://njq3re8rc04"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_0wo6n"]
+[ext_resource type="Texture2D" uid="uid://cyu7cwkaluako" path="res://GMTK-2024/Pickables/Pickable Instances/plastic/PLASTIC_Cup.png" id="2_poj1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qeyjy"]
+size = Vector2(93, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hde5"]
+size = Vector2(75.0947, 99.0267)
+
+[node name="Pickable_plastic_cup" instance=ExtResource("1_0wo6n")]
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(40.5, 24)
+shape = SubResource("RectangleShape2D_qeyjy")
+
+[node name="Sprite2D" parent="." index="2"]
+position = Vector2(-13, -6)
+scale = Vector2(0.226495, 0.226495)
+texture = ExtResource("2_poj1m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="7"]
+position = Vector2(-20.6082, -7.09691)
+rotation = 0.677164
+shape = SubResource("RectangleShape2D_1hde5")
+
+[editable path="LigtningEffect"]
