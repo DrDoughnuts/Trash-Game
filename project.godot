@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Litter Ladder"
-run/main_scene="res://GMTK-2024/THE TRASH COMPACTOR.tscn"
+run/main_scene="res://GMTK-2024/Title Screen/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://GMTK-2024/Enemy/Enemy1.png"
 
