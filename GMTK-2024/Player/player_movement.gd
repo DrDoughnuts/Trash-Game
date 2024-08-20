@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 		player.velocity.y += gravity * delta
 	
 	if player.is_on_ceiling() && player.is_on_floor():
-		Trashmanager.trash -= delta * 20
+		Trashmanager.trash -= delta * 2500
 	if $"../PlayerTakeDamage".hurt_timer <= 0:
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and player.is_on_floor():
