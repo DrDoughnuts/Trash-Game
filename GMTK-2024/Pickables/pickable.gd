@@ -4,7 +4,7 @@ class_name Pickable
 @onready var held: bool = false
 @onready var mouse_in: bool = false
 @export var held_damping: float = 2.0
-@export var value: float = 750
+@export var value: float = 450
 @onready var sfx_hold := preload("res://GMTK-2024/Player/Magnet/sfx_magnet_hold.wav")
 @onready var read_velocity: Vector2 = Vector2(0,0)
 enum Garbage_type{

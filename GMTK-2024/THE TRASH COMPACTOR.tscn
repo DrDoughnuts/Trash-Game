@@ -949,6 +949,10 @@ rotation = 1.75514
 position = Vector2(695, -20314)
 rotation = 1.75514
 
+[node name="Pipe_Plastic11" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(5645, -17449)
+rotation = -1.11677
+
 [node name="Pipe_Plastic7" parent="." instance=ExtResource("13_fqa2i")]
 position = Vector2(-1439, -24797)
 rotation = 1.75514
@@ -988,6 +992,11 @@ mytype = 1
 [node name="Pipe_Metal5" parent="." instance=ExtResource("13_fqa2i")]
 position = Vector2(4504, -16094)
 rotation = 5.53554
+mytype = 1
+
+[node name="Pipe_Metal11" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(596, -18815)
+rotation = 8.12248
 mytype = 1
 
 [node name="Pipe_Metal6" parent="." instance=ExtResource("13_fqa2i")]
@@ -1043,6 +1052,11 @@ mytype = 2
 [node name="Pipe_Paper6" parent="." instance=ExtResource("13_fqa2i")]
 position = Vector2(5766, -19695)
 rotation = -1.4655
+mytype = 2
+
+[node name="Pipe_Paper10" parent="." instance=ExtResource("13_fqa2i")]
+position = Vector2(96, -17598)
+rotation = -4.00512
 mytype = 2
 
 [node name="Pipe_Paper7" parent="." instance=ExtResource("13_fqa2i")]

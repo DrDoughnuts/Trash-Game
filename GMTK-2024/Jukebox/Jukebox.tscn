@@ -4,5 +4,6 @@
 
 [node name="Jukebox" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_psrh3")
+volume_db = -9.106
 max_distance = 9.22337e+18
 parameters/looping = true

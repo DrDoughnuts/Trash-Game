@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		var new_trash = pickables.pick_random().instantiate()
 		new_trash.global_position = player.global_position
 		new_trash.global_position.x += randf_range(-2000, 2000)
-		new_trash.global_position.y -= 2000
+		new_trash.global_position.y -= 2750
 		new_trash.linear_velocity = Vector2(0, 500).rotated(randf_range(0, 2 * PI))
 		new_trash.apply_torque(randf_range(-200, 200))
 		add_sibling(new_trash)

@@ -4,3 +4,4 @@
 
 [node name="EnemySpawner" type="Node2D" groups=["enemy_spawner"]]
 script = ExtResource("1_3ljvx")
+spawn_rate = 0.18
