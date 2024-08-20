@@ -4,9 +4,9 @@ extends Node2D
 @export var endy: float = -800.0
 @onready var moving: bool = false
 @onready var falling: bool = false
-@onready var fall_speed: float = 500.0
+@onready var fall_speed: float = 800.0
 @onready var myvalue: float = 0.0
-@export var rise_speed: float = 50.0
+@export var rise_speed: float = 400.0
 @export var shake_strength: float = 15.0
 
 # Called when the node enters the scene tree for the faaaaaaaaaa irst time.

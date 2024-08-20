@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5klxry604et6"]
+
+[ext_resource type="AudioStream" uid="uid://c26upfye4jw3y" path="res://GMTK-2024/Jukebox/Robobozo.mp3" id="1_psrh3"]
+
+[node name="Jukebox" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_psrh3")
+max_distance = 9.22337e+18
+parameters/looping = true
