@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://6eybpavcjfyc"]
+
+[ext_resource type="Script" path="res://GMTK-2024/Winning/arrow.gd" id="1_4fahs"]
+[ext_resource type="Texture2D" uid="uid://d0cdr3jdc3xyu" path="res://GMTK-2024/Winning/Arrow.png" id="1_ho574"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsr2t"]
+size = Vector2(362, 488)
+
+[node name="Arrow" type="Area2D"]
+script = ExtResource("1_4fahs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 15)
+shape = SubResource("RectangleShape2D_tsr2t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.22604, 2.22604)
+texture = ExtResource("1_ho574")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
