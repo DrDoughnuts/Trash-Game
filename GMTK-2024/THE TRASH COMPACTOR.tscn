@@ -1064,7 +1064,11 @@ texture = ExtResource("21_xd5yo")
 centered = false
 
 [node name="Arrow" parent="." instance=ExtResource("22_cs2dg")]
-position = Vector2(1919, -36831)
-scale = Vector2(2.67374, 2.67374)
+position = Vector2(1930, -38200)
+scale = Vector2(10.7316, 10.4674)
+
+[node name="CollisionShape2D" parent="Arrow" index="0"]
+position = Vector2(-0.465912, -16.4814)
 
 [editable path="TrashPile"]
+[editable path="Arrow"]
