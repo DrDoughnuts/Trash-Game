@@ -139,7 +139,6 @@ gravity = 2000.0
 
 [node name="ThrowHeldObject" type="Node2D" parent="."]
 script = ExtResource("3_3j0sv")
-throw_speed = null
 
 [node name="SfxRelease" type="AudioStreamPlayer2D" parent="ThrowHeldObject"]
 stream = ExtResource("4_yruva")
