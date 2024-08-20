@@ -13,6 +13,8 @@ config_version=5
 config/name="Litter Ladder"
 run/main_scene="res://GMTK-2024/Title Screen/title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://GMTK-2024/splash screen.png"
+boot_splash/fullsize=false
 config/icon="res://GMTK-2024/Enemy/Enemy1.png"
 
 [autoload]
