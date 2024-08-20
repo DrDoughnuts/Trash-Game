@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://byenxdllgjbc0"]
+
+[ext_resource type="Texture2D" uid="uid://6rfybdanschn" path="res://GMTK-2024/Winning/WinScreen.png" id="1_am563"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qholv"]
+bg_color = Color(0.1128, 0.249727, 0.47, 1)
+border_width_left = 16
+border_width_bottom = 16
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+shadow_size = 50
+shadow_offset = Vector2(-15.215, 10.205)
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_bepta"]
+Button/styles/normal = SubResource("StyleBoxFlat_qholv")
+
+[sub_resource type="Theme" id="Theme_y8lgv"]
+Button/styles/normal = SubResource("StyleBoxFlat_qholv")
+
+[node name="Winning" type="Node2D"]
+
+[node name="WinScreen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_am563")
+
+[node name="again" type="Button" parent="."]
+custom_minimum_size = Vector2(38.815, 15.57)
+offset_left = 155.0
+offset_top = 109.0
+offset_right = 548.0
+offset_bottom = 288.0
+theme = SubResource("Theme_bepta")
+theme_override_font_sizes/font_size = 67
+text = "Once More Onto 
+the Breach!"
+
+[node name="quit" type="Button" parent="."]
+custom_minimum_size = Vector2(38.815, 15.57)
+offset_left = 1335.0
+offset_top = 128.0
+offset_right = 1728.0
+offset_bottom = 307.0
+theme = SubResource("Theme_y8lgv")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 67
+text = "Get Me Out of Here"
