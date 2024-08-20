@@ -19,4 +19,6 @@ func _process(_delta: float) -> void:
 		var enemy_spawner = get_tree().get_first_node_in_group("enemy_spawner")
 		if enemy_spawner:
 			enemy_spawner.spawn_rate = enemy_spawner.start_rate
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
 		

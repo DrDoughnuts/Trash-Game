@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d0cdr3jdc3xyu" path="res://GMTK-2024/Winning/Arrow.png" id="1_ho574"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsr2t"]
-size = Vector2(362, 488)
+size = Vector2(705.206, 425.037)
 
 [node name="Arrow" type="Area2D"]
 script = ExtResource("1_4fahs")
