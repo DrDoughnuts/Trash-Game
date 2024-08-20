@@ -1,6 +1,6 @@
 extends Node
 @onready var trash: float = 0.0
-@onready var time_left: float = 300
+@onready var time_left: float = 360
 @onready var start_time: float = time_left
 @onready var rewind_time: float = 8
 @onready var jukebox := preload("res://GMTK-2024/Jukebox/Jukebox.tscn")

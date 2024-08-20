@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://byenxdllgjbc0"]
+[gd_scene load_steps=9 format=3 uid="uid://byenxdllgjbc0"]
 
 [ext_resource type="Texture2D" uid="uid://6rfybdanschn" path="res://GMTK-2024/Winning/WinScreen.png" id="1_am563"]
 [ext_resource type="Script" path="res://GMTK-2024/Winning/again.gd" id="2_whi6k"]
 [ext_resource type="Script" path="res://GMTK-2024/Winning/quit.gd" id="3_peq5q"]
+[ext_resource type="AudioStream" uid="uid://dhhf8k84hf7ev" path="res://GMTK-2024/Winning/Sfx_victory.mp3" id="4_xxt2b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b57sg"]
 bg_color = Color(0.1128, 0.249727, 0.47, 1)
@@ -73,6 +74,10 @@ theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 67
 text = "Get Me Out of Here"
 script = ExtResource("3_peq5q")
+
+[node name="Sfx_victory" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xxt2b")
+volume_db = -4.3
 
 [connection signal="pressed" from="again" to="again" method="_on_pressed"]
 [connection signal="pressed" from="quit" to="quit" method="_on_pressed"]

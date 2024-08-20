@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://dr04i0r411c33"]
+
+[ext_resource type="Texture2D" uid="uid://vr84klhdubtd" path="res://GMTK-2024/Title Screen/Title.png" id="1_qncck"]
+[ext_resource type="Texture2D" uid="uid://bs1a6yk6ackts" path="res://GMTK-2024/Title Screen/Play.png" id="2_bkq1m"]
+[ext_resource type="Texture2D" uid="uid://gyao6om8j2yy" path="res://GMTK-2024/Title Screen/Play_pressed.png" id="2_usft8"]
+[ext_resource type="Script" path="res://GMTK-2024/Title Screen/play.gd" id="3_y8wyr"]
+[ext_resource type="Script" path="res://GMTK-2024/Title Screen/hint.gd" id="4_hkyba"]
+[ext_resource type="Texture2D" uid="uid://5opptudvhrsq" path="res://GMTK-2024/Title Screen/WarningSign.png" id="5_v5pbs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_klwbu"]
+texture = ExtResource("2_usft8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pqvpy"]
+texture = ExtResource("2_bkq1m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xoga1"]
+texture = ExtResource("2_usft8")
+
+[sub_resource type="Theme" id="Theme_dfffo"]
+Button/styles/hover = SubResource("StyleBoxTexture_klwbu")
+Button/styles/normal = SubResource("StyleBoxTexture_pqvpy")
+Button/styles/pressed = SubResource("StyleBoxTexture_xoga1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qo8x5"]
+bg_color = Color(0.446777, 0.446777, 0.446777, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_offset = Vector2(16.945, 26.86)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d6kvj"]
+bg_color = Color(0.446777, 0.446777, 0.446777, 1)
+corner_radius_top_left = 150
+corner_radius_top_right = 150
+corner_radius_bottom_right = 150
+corner_radius_bottom_left = 150
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 10
+shadow_offset = Vector2(16.945, 26.86)
+
+[sub_resource type="FontFile" id="FontFile_l2wht"]
+cache/0/159/0/ascent = 0.0
+cache/0/159/0/descent = 0.0
+cache/0/159/0/underline_position = 0.0
+cache/0/159/0/underline_thickness = 0.0
+cache/0/159/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_v8sqr"]
+default_font = SubResource("FontFile_l2wht")
+Button/styles/hover = SubResource("StyleBoxFlat_qo8x5")
+Button/styles/normal = SubResource("StyleBoxFlat_d6kvj")
+Button/styles/pressed = SubResource("StyleBoxFlat_qo8x5")
+
+[node name="Title Screen" type="Node2D"]
+position = Vector2(511, 67)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -515.0
+offset_top = -71.0
+offset_right = 1437.0
+offset_bottom = 1027.0
+color = Color(0.431373, 0.580392, 0.227451, 1)
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(456, 244)
+scale = Vector2(1.35274, 1.35274)
+texture = ExtResource("1_qncck")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 184.0
+offset_top = 512.0
+offset_right = 817.0
+offset_bottom = 790.0
+theme = SubResource("Theme_dfffo")
+script = ExtResource("3_y8wyr")
+
+[node name="Hint" type="Button" parent="."]
+offset_left = 1131.0
+offset_top = 741.0
+offset_right = 1360.0
+offset_bottom = 955.0
+theme = SubResource("Theme_v8sqr")
+theme_override_font_sizes/font_size = 159
+text = "?"
+script = ExtResource("4_hkyba")
+
+[node name="tutorial" type="Sprite2D" parent="Hint"]
+visible = false
+position = Vector2(-653, -253)
+scale = Vector2(0.691696, 0.691696)
+texture = ExtResource("5_v5pbs")
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="mouse_entered" from="Hint" to="Play" method="_on_hint_mouse_entered"]
+[connection signal="mouse_exited" from="Hint" to="Play" method="_on_hint_mouse_exited"]

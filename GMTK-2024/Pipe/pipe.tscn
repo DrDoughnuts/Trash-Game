@@ -26,6 +26,7 @@ shape = SubResource("RectangleShape2D_wwa22")
 
 [node name="Sfx_trash_in" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_2givr")
+volume_db = -7.72
 max_distance = 1e+14
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

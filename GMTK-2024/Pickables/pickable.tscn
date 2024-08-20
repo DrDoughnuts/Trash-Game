@@ -69,9 +69,9 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4y2fv"]
 shader = SubResource("Shader_eijy2")
-shader_parameter/chaos = 13.532
+shader_parameter/chaos = 22.607
 shader_parameter/radius = 1.0
-shader_parameter/attenuation = 2.871
+shader_parameter/attenuation = 2.095
 
 [node name="Pickable" type="RigidBody2D"]
 collision_layer = 4
@@ -93,13 +93,13 @@ material = SubResource("ShaderMaterial_evfk0")
 texture = ExtResource("2_ygjcx")
 
 [node name="Distortion" type="ColorRect" parent="."]
-visible = false
 z_index = 20
 material = SubResource("ShaderMaterial_4y2fv")
-offset_left = -101.0
-offset_top = -90.0
-offset_right = 99.0
-offset_bottom = 91.0
+offset_left = -204.0
+offset_top = -182.0
+offset_right = -3.99998
+offset_bottom = -1.0
+scale = Vector2(2.11864, 2.11118)
 color = Color(1, 1, 1, 0)
 
 [node name="PickableRayCast" type="RayCast2D" parent="."]
@@ -109,7 +109,7 @@ script = ExtResource("3_kstcs")
 
 [node name="SfxHold" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_yyjkv")
-volume_db = -3.47
+volume_db = -6.346
 max_distance = 9110.0
 
 [node name="SfxPressed" type="AudioStreamPlayer2D" parent="."]
