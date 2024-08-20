@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://byenxdllgjbc0"]
+[gd_scene load_steps=8 format=3 uid="uid://byenxdllgjbc0"]
 
 [ext_resource type="Texture2D" uid="uid://6rfybdanschn" path="res://GMTK-2024/Winning/WinScreen.png" id="1_am563"]
+[ext_resource type="Script" path="res://GMTK-2024/Winning/again.gd" id="2_whi6k"]
+[ext_resource type="Script" path="res://GMTK-2024/Winning/quit.gd" id="3_peq5q"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qholv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b57sg"]
 bg_color = Color(0.1128, 0.249727, 0.47, 1)
 border_width_left = 16
 border_width_bottom = 16
@@ -19,11 +21,28 @@ shadow_size = 50
 shadow_offset = Vector2(-15.215, 10.205)
 anti_aliasing = false
 
-[sub_resource type="Theme" id="Theme_bepta"]
-Button/styles/normal = SubResource("StyleBoxFlat_qholv")
+[sub_resource type="Theme" id="Theme_wkueo"]
+Button/styles/normal = SubResource("StyleBoxFlat_b57sg")
 
-[sub_resource type="Theme" id="Theme_y8lgv"]
-Button/styles/normal = SubResource("StyleBoxFlat_qholv")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1bd4"]
+bg_color = Color(0.476469, 0.00106829, 0.267328, 1)
+border_width_left = 16
+border_width_bottom = 16
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+shadow_size = 50
+shadow_offset = Vector2(-15.215, 10.205)
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_10yby"]
+Button/styles/normal = SubResource("StyleBoxFlat_l1bd4")
 
 [node name="Winning" type="Node2D"]
 
@@ -37,10 +56,11 @@ offset_left = 155.0
 offset_top = 109.0
 offset_right = 548.0
 offset_bottom = 288.0
-theme = SubResource("Theme_bepta")
+theme = SubResource("Theme_wkueo")
 theme_override_font_sizes/font_size = 67
 text = "Once More Onto 
 the Breach!"
+script = ExtResource("2_whi6k")
 
 [node name="quit" type="Button" parent="."]
 custom_minimum_size = Vector2(38.815, 15.57)
@@ -48,7 +68,11 @@ offset_left = 1335.0
 offset_top = 128.0
 offset_right = 1728.0
 offset_bottom = 307.0
-theme = SubResource("Theme_y8lgv")
+theme = SubResource("Theme_10yby")
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 67
 text = "Get Me Out of Here"
+script = ExtResource("3_peq5q")
+
+[connection signal="pressed" from="again" to="again" method="_on_pressed"]
+[connection signal="pressed" from="quit" to="quit" method="_on_pressed"]
